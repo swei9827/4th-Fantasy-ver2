@@ -19,6 +19,7 @@ public class PlayerLockInSkill : MonoBehaviour {
 
     private void Awake()
     {
+        chooseSkillBar.transform.localScale = new Vector3(chooseSkillBar.transform.localScale.x, 0, chooseSkillBar.transform.localScale.z);
         battleStateManager = this.GetComponent<BattleStateManager>();
         skillList = this.GetComponent<Character_Skill_List>().skillHolder;
         if (this.transform.parent.name == "P1_Spawn_Point")
@@ -29,7 +30,7 @@ public class PlayerLockInSkill : MonoBehaviour {
         {
             playerButton = "P2_Button";
         }
-        timeNeeded = 1f;
+        timeNeeded = 0.5f;
         isSkillLockedIn = false;
         lockedInTimer = 0f;
         isPerfectTiming = false;
@@ -45,10 +46,7 @@ public class PlayerLockInSkill : MonoBehaviour {
     {
         if(battleStateManager.gameState == BattleStateManager.GAMESTATE.CHOOSING_SKILL)
         {
-            if (isSkillLockedIn)
-            {
-                lockedInTimer += Time.deltaTime;
-            }
+           
             if (Input.GetButton(playerButton))
             {
                 holdTimer += Time.deltaTime;
@@ -59,10 +57,6 @@ public class PlayerLockInSkill : MonoBehaviour {
                 {
                     lockInSkill = skillList[2];
                     isSkillLockedIn = true;
-                    if (holdTimer <= timeNeeded + 0.5 && holdTimer >= timeNeeded - 0.5)
-                    {
-                        isPerfectTiming = true;
-                    }
                     holdTimer = 0f;
                     battleStateManager.gameState = BattleStateManager.GAMESTATE.CHOOSING_TARGET;
                 }
@@ -72,6 +66,10 @@ public class PlayerLockInSkill : MonoBehaviour {
             {
                 holdTimer = 0f;
             }
+        }
+        if (isSkillLockedIn && GetComponent<actionTimeBar>().startSelection < 100f)
+        {
+            lockedInTimer += Time.deltaTime;
         }
     }
 

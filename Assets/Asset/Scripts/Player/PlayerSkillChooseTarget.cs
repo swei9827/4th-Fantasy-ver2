@@ -101,7 +101,7 @@ public class PlayerSkillChooseTarget : MonoBehaviour {
                     targetCursorBar.SetActive(false);
                     cursorIndex = 0;
                     isTargetLockedIn = true;
-                    battleStateManagerScript.gameState = BattleStateManager.GAMESTATE.CHOOSING_SKILL;
+                    battleStateManagerScript.gameState = BattleStateManager.GAMESTATE.EXECUTE_SKILL;
                 }
             }
             else

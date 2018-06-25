@@ -13,6 +13,7 @@ public class PlayerSkillExecution : MonoBehaviour {
     public GameObject testSkill;
     public GameObject testEnemy;
     public PlayerBattleLog battleLog;
+    public BattleStateManager battleStateManagerScript;
 
     private void Awake()
     {
@@ -21,9 +22,10 @@ public class PlayerSkillExecution : MonoBehaviour {
         playerChooseTargetScript = this.GetComponent<PlayerSkillChooseTarget>();
         skillList = this.GetComponent<Character_Skill_List>().skillHolder;
         reward = 10;
+        battleStateManagerScript = this.GetComponent<BattleStateManager>();
 
         battleLog = GameObject.Find("Panel").GetComponent<PlayerBattleLog>();
-            //GameObject.Find("Canvas/Camera Label").GetComponent[UnityEngine.UI.Text]();
+        //GameObject.Find("Canvas/Camera Label").GetComponent[UnityEngine.UI.Text]();
     }
 
     // Use this for initialization
@@ -35,27 +37,44 @@ public class PlayerSkillExecution : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if(actionTimerBarScript.selectionBar.fillAmount >= 1)
+        if(battleStateManagerScript.gameState == BattleStateManager.GAMESTATE.EXECUTE_SKILL)
         {
-            if (playerLockInSkillScript.isSkillLockedIn)
+            if(actionTimerBarScript.selectionBar.fillAmount >= 1)
             {
-                if (playerChooseTargetScript.isTargetLockedIn)
+                if (playerLockInSkillScript.isSkillLockedIn)
                 {
-                    //for(int i=0; i < playerLockInSkillScript.lockInSkill.GetComponent<SkillDetail>().skillExecutionList.Count;i++)
-                    playerLockInSkillScript.lockInSkill.GetComponent<SkillDetail>().skillExecutionHolder[0].GetComponent<SkillEffect>().Execute(playerChooseTargetScript.targetedEnemy);
-                    //battleLog.AddEvent(this.GetComponent<Stats>().name + " used " + scroll.playerSkillList[2].name);
-                    battleLog.AddEvent(this.GetComponent<PlayerStats>().name + " dealt " + playerLockInSkillScript.lockInSkill.GetComponent<SkillDetail>().skillExecutionHolder[0].GetComponent<SkillEffect>().damage + " to " + playerChooseTargetScript.targetedEnemy.GetComponent<EnemyStats>().name);
-                    playerLockInSkillScript.isSkillLockedIn = false;
-                    playerChooseTargetScript.isTargetLockedIn = false;
-                    playerLockInSkillScript.isPerfectTiming = false;
-                    actionTimerBarScript.selectionBar.fillAmount = 0;
-                    actionTimerBarScript.startSelection = 0;
-                    this.GetComponent<Status>().roundPassed++;
-                    //actionTimerBarScript.startSelection = reward;
-                }
+                    if (playerChooseTargetScript.isTargetLockedIn)
+                    {
+                        //for(int i=0; i < playerLockInSkillScript.lockInSkill.GetComponent<SkillDetail>().skillExecutionList.Count;i++)
+                        for (int i = 0; i < playerLockInSkillScript.lockInSkill.GetComponent<SkillDetail>().skillExecutionHolder.Count; i++)
+                        {
+                            playerLockInSkillScript.lockInSkill.GetComponent<SkillDetail>().skillExecutionHolder[i].GetComponent<SkillEffect>().Execute(playerChooseTargetScript.targetedEnemy);
+                        }
+                        //battleLog.AddEvent(this.GetComponent<Stats>().name + " used " + scroll.playerSkillList[2].name);
+                        battleLog.AddEvent(this.GetComponent<PlayerStats>().name + " dealt " + playerLockInSkillScript.lockInSkill.GetComponent<SkillDetail>().skillExecutionHolder[0].GetComponent<SkillEffect>().damage + " to " + playerChooseTargetScript.targetedEnemy.GetComponent<EnemyStats>().name);
+                        playerLockInSkillScript.isSkillLockedIn = false;
+                        playerChooseTargetScript.isTargetLockedIn = false;
+                        if (this.GetComponent<PlayerLockInSkill>().isPerfectTiming == true)
+                        {
+                            actionTimerBarScript.startSelection = 20;
+                            this.GetComponent<PlayerLockInSkill>().isPerfectTiming = false;
+                        }
+                        else
+                        {
+                            actionTimerBarScript.startSelection = 0;
+                        }
+                        
+                        this.GetComponent<actionTimeBar>().isBarFull = false;
+                        this.GetComponent<PlayerLockInSkill>().lockedInTimer = 0;
+                        this.GetComponent<actionTimeBar>().fullTimer = 0;
+                        battleStateManagerScript.gameState = BattleStateManager.GAMESTATE.CHOOSING_SKILL;
+                        //actionTimerBarScript.startSelection = reward;
+                    }
 
+                }
             }
         }
+        
         /*if (playerLockInSkillScript.isSkillLockedIn)
         {
             if (playerChooseTargetScript.isTargetLockedIn)
