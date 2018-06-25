@@ -121,11 +121,8 @@ public class PlayerSkillChooseTarget : MonoBehaviour
                 if (cursorIndex >= enemyTargetCursorPoints.Count)
                 {
                     cursorIndex = 0;
-<<<<<<< HEAD
                     isTargetLockedIn = true;
                     battleStateManagerScript.gameState = BattleStateManager.GAMESTATE.EXECUTE_SKILL;
-=======
->>>>>>> shaun
                 }
             }
             else if (type == 2)

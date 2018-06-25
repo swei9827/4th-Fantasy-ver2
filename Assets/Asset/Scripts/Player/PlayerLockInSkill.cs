@@ -38,18 +38,9 @@ public class PlayerLockInSkill : MonoBehaviour
     }
 
     // Use this for initialization
-<<<<<<< HEAD
-    void Start () {
-        Application.targetFrameRate = 60;
-	}
-	
-	// Update is called once per frame
-	void Update ()
-=======
     void Start()
->>>>>>> shaun
     {
-
+        Application.targetFrameRate = 60;
     }
 
     // Update is called once per frame
@@ -57,11 +48,6 @@ public class PlayerLockInSkill : MonoBehaviour
     {
         if (battleStateManager.gameState == BattleStateManager.GAMESTATE.CHOOSING_SKILL)
         {
-<<<<<<< HEAD
-           
-=======
-
->>>>>>> shaun
             if (Input.GetButton(playerButton))
             {
                 holdTimer += Time.deltaTime;
@@ -75,11 +61,6 @@ public class PlayerLockInSkill : MonoBehaviour
                     holdTimer = 0f;
                     battleStateManager.gameState = BattleStateManager.GAMESTATE.CHOOSING_TARGET;
                 }
-<<<<<<< HEAD
-                
-=======
-
->>>>>>> shaun
             }
             else
             {
@@ -91,11 +72,4 @@ public class PlayerLockInSkill : MonoBehaviour
             lockedInTimer += Time.deltaTime;
         }
     }
-<<<<<<< HEAD
-
-   
-      
- }
-=======
 }
->>>>>>> shaun

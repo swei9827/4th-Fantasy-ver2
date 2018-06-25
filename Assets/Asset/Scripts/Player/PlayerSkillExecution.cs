@@ -190,7 +190,7 @@ public class PlayerSkillExecution : MonoBehaviour
         {
             for (int i = 0; i < playerLockInSkillScript.lockInSkill.GetComponent<SkillDetail>().skillExecutionHolder.Count; i++)
             {
-                playerLockInSkillScript.lockInSkill.GetComponent<SkillDetail>().skillExecutionHolder[i].GetComponent<SkillEffect>().Execute(playerChooseTargetScript.targetedEnemy[i]);
+                //playerLockInSkillScript.lockInSkill.GetComponent<SkillDetail>().skillExecutionHolder[i].GetComponent<SkillEffect>().Execute(playerChooseTargetScript.targetedEnemy[i]);
             }
             playerLockInSkillScript.isSkillLockedIn = false;
             playerChooseTargetScript.isTargetLockedIn = false;
