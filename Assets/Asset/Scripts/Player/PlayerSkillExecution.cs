@@ -47,8 +47,10 @@ public class PlayerSkillExecution : MonoBehaviour {
                     battleLog.AddEvent(this.GetComponent<PlayerStats>().name + " dealt " + playerLockInSkillScript.lockInSkill.GetComponent<SkillDetail>().skillExecutionHolder[0].GetComponent<SkillEffect>().damage + " to " + playerChooseTargetScript.targetedEnemy.GetComponent<EnemyStats>().name);
                     playerLockInSkillScript.isSkillLockedIn = false;
                     playerChooseTargetScript.isTargetLockedIn = false;
+                    playerLockInSkillScript.isPerfectTiming = false;
                     actionTimerBarScript.selectionBar.fillAmount = 0;
                     actionTimerBarScript.startSelection = 0;
+                    this.GetComponent<Status>().roundPassed++;
                     //actionTimerBarScript.startSelection = reward;
                 }
 

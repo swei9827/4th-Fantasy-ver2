@@ -37,7 +37,7 @@ public class PlayerLockInSkill : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+        Application.targetFrameRate = 60;
 	}
 	
 	// Update is called once per frame
@@ -58,10 +58,15 @@ public class PlayerLockInSkill : MonoBehaviour {
                 if (holdTimer >= timeNeeded)
                 {
                     lockInSkill = skillList[2];
-                    holdTimer = 0f;
                     isSkillLockedIn = true;
+                    if (holdTimer <= timeNeeded + 0.5 && holdTimer >= timeNeeded - 0.5)
+                    {
+                        isPerfectTiming = true;
+                    }
+                    holdTimer = 0f;
                     battleStateManager.gameState = BattleStateManager.GAMESTATE.CHOOSING_TARGET;
                 }
+                
             }
             else
             {
@@ -70,14 +75,6 @@ public class PlayerLockInSkill : MonoBehaviour {
         }
     }
 
-    private void LateUpdate()
-    {
-        if(this.GetComponent<actionTimeBar>().selectionBar.fillAmount >= 1)
-        {
-            if(holdTimer <= timeNeeded + 0.5 && holdTimer >= timeNeeded - 0.5)
-            {
-                isPerfectTiming = true;
-            }
-        }
-    }
-}
+   
+      
+ }

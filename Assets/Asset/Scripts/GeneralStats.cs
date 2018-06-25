@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class GeneralStats : MonoBehaviour {
 
-    public int strength;
-    public int baseStrength;
-    public int magic;
-    public int baseMagic;
-    public int spirit;
-    public int baseSpirit;
-    public int defense;
-    public int baseDefense;
+    public float strength;
+    public float baseStrength;
+    public float magic;
+    public float baseMagic;
+    public float spirit;
+    public float baseSpirit;
+    public float defense;
+    public float baseDefense;
     public float criticalChance;
     public float baseCriticalChance;
     public int criticalDamage;
@@ -20,10 +20,10 @@ public class GeneralStats : MonoBehaviour {
     public float baseAccuracy;
     public List<float> statusResistance = new List<float>(5);
     public List<float> baseStatusResistance = new List<float>(5);
-    public int health;
-    public int baseHealth;
-    public int speed;
-    public int baseSpeed;
+    public float health;
+    public float baseHealth;
+    public float speed;
+    public float baseSpeed;
     public float evasion;
     public float baseEvasion;
     public float timeNeeded;
