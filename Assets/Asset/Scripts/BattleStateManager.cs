@@ -8,6 +8,7 @@ public class BattleStateManager : MonoBehaviour {
     {
         CHOOSING_SKILL = 0,
         CHOOSING_TARGET,
+        EXECUTE_SKILL,
         PAUSED
     }
 

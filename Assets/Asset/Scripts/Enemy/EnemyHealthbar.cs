@@ -8,42 +8,26 @@ public class EnemyHealthbar : MonoBehaviour {
     public float currentHealth { get; set; }
     public float maxHealth { get; set; }
     public Slider healthBar;
+    public float healthInPercentage;
 
 
-    float calHealth()
-    {
-        return currentHealth / maxHealth;
-    }
     // Use this for initialization
     void Start()
     {
-        maxHealth = 100;
-        //reset health
+        maxHealth = this.GetComponent<EnemyStats>().baseHealth;
         currentHealth = this.GetComponent<EnemyStats>().health;
-        healthBar.value = calHealth();
+        healthInPercentage = currentHealth / maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-            dealDamage(this.GetComponent<EnemyStats>().strength);
+
         currentHealth = this.GetComponent<EnemyStats>().health;
-        healthBar.value = calHealth();
-    }
 
-    void dealDamage(float damageValue)
-    {
-        //minus damage
-        currentHealth -= damageValue;
-        healthBar.value = calHealth();
-        //if 0 hp
-        if (currentHealth <= 0)
-        {
-            Debug.Log("DEATH");
-        }
+        healthInPercentage = currentHealth / maxHealth;
 
-
+        healthBar.value = healthInPercentage;
 
     }
 }

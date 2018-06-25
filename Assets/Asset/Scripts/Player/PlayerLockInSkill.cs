@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerLockInSkill : MonoBehaviour {
+public class PlayerLockInSkill : MonoBehaviour
+{
 
     public BattleStateManager battleStateManager;
     public GameObject lockInSkill;
@@ -36,19 +37,17 @@ public class PlayerLockInSkill : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    void Start()
     {
-        if(battleStateManager.gameState == BattleStateManager.GAMESTATE.CHOOSING_SKILL)
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (battleStateManager.gameState == BattleStateManager.GAMESTATE.CHOOSING_SKILL)
         {
-            if (isSkillLockedIn)
-            {
-                lockedInTimer += Time.deltaTime;
-            }
+
             if (Input.GetButton(playerButton))
             {
                 holdTimer += Time.deltaTime;
@@ -58,26 +57,20 @@ public class PlayerLockInSkill : MonoBehaviour {
                 if (holdTimer >= timeNeeded)
                 {
                     lockInSkill = skillList[2];
-                    holdTimer = 0f;
                     isSkillLockedIn = true;
+                    holdTimer = 0f;
                     battleStateManager.gameState = BattleStateManager.GAMESTATE.CHOOSING_TARGET;
                 }
+
             }
             else
             {
                 holdTimer = 0f;
             }
         }
-    }
-
-    private void LateUpdate()
-    {
-        if(this.GetComponent<actionTimeBar>().selectionBar.fillAmount >= 1)
+        if (isSkillLockedIn && GetComponent<actionTimeBar>().startSelection < 100f)
         {
-            if(holdTimer <= timeNeeded + 0.5 && holdTimer >= timeNeeded - 0.5)
-            {
-                isPerfectTiming = true;
-            }
+            lockedInTimer += Time.deltaTime;
         }
     }
 }
