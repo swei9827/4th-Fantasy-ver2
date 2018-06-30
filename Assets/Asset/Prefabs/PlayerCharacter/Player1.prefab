@@ -832,7 +832,7 @@ MonoBehaviour:
   baseStatusResistance: []
   health: 400
   baseHealth: 400
-  speed: 35
+  speed: 100
   baseSpeed: 70
   evasion: 20
   baseEvasion: 20

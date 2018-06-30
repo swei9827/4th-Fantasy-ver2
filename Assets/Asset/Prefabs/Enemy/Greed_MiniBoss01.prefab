@@ -348,7 +348,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.59329706
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
 --- !u!114 &114274490510366358
@@ -470,7 +470,7 @@ MonoBehaviour:
   baseStatusResistance: []
   health: 1000
   baseHealth: 1000
-  speed: 40
+  speed: 10
   baseSpeed: 40
   evasion: 10
   baseEvasion: 10

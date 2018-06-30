@@ -22,14 +22,13 @@ public class SkillEffect : MonoBehaviour {
 
     private void Awake()
     {
-        //playerList = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().playerList;
-        //enemyList = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().enemyList;
+        
     }
 
     // Use this for initialization
-    void Start () {
-		
-	}
+    void Start () {        
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -39,5 +38,16 @@ public class SkillEffect : MonoBehaviour {
     public virtual void Execute(GameObject targetedEnemy)
     {
 
+    }
+    public virtual void Execute()
+    {
+
+    }
+
+    public void SetReference()
+    {
+        playerList = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().playerList;
+        enemyList = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().enemyList;
+        //user = this.transform.parent.parent.parent.gameObject;
     }
 }

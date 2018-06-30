@@ -13,7 +13,7 @@ public class AccuracyDown : ActionCounterStatusEffect
     // Use this for initialization
     void Start()
     {
-
+        DoEffect();
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class AccuracyDown : ActionCounterStatusEffect
         }
         if (!effect)
         {
-            user.GetComponent<PlayerStats>().accuracy -= 30;
+            user.GetComponent<EnemyStats>().accuracy -= 30;
             effect = true;
         }
         intDuration--;

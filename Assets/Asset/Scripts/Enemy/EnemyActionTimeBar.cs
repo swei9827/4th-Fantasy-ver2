@@ -11,8 +11,12 @@ public class EnemyActionTimeBar : MonoBehaviour {
     public bool ATBFull = false;
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         maxCooldown = 1;
+        actionBar.fillAmount = 0;
+        curCooldown = 0;
+        Debug.Log(actionBar.fillAmount);
 	}
 	
 	// Update is called once per frame
