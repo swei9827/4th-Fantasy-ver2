@@ -6,9 +6,9 @@ public class ApplyAccuracyDownArea : SkillEffect
 {
     private void Awake()
     {
-        effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
+        effectType = SKILL_EFFECT_TYPE.DEBUFF;
         numOfTarget = 0;
-        effectDescription = "Accuracy Down";
+        effectDescription = "Decrease accuracy of all enemies";
     }
 
     // Use this for initialization

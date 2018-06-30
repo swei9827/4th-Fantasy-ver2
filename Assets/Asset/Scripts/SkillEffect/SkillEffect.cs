@@ -16,13 +16,14 @@ public class SkillEffect : MonoBehaviour {
     {
         OFFENSIVE = 0,
         SUPPORTIVE,
+        DEBUFF,
         HEAL
     }
 
     private void Awake()
     {
-        playerList = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().playerList;
-        enemyList = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().enemyList;
+        //playerList = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().playerList;
+        //enemyList = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().enemyList;
     }
 
     // Use this for initialization

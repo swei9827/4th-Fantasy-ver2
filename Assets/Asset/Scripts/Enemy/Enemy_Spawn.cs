@@ -15,10 +15,6 @@ public class Enemy_Spawn : MonoBehaviour {
         //! DON'T FORGET TO DO THIS AFTER POC(Getting the enemyIndex from the character selection screen)
 
         //! Instantiating enemies on specific spawn points based on the size of the enemyIndexStage list.
-        /*if (characterIndex[i] == 1)
-        {
-            sceneManager.playerList.Add(Instantiate(allCharactersList[0], new Vector2(playerSpawnPoints[i].position.x, playerSpawnPoints[i].position.y), Quaternion.identity, playerSpawnPoints[i]));
-        }*/
         indexInList = 0;
         if (enemyIndexStage.Count == 1)
         {
@@ -33,25 +29,12 @@ public class Enemy_Spawn : MonoBehaviour {
                 sceneManager.enemyList[i].GetComponent<EnemyStats>().index = i*2;
             }
         }
-        else if (enemyIndexStage.Count == 3 || enemyIndexStage.Count == 5)
+        else if (enemyIndexStage.Count == 3)
         {
             for (int i = 0; i < enemyIndexStage.Count; i++)
             {
                 sceneManager.enemyList.Add(Instantiate(allEnemyList[enemyIndexStage[i] - 1], new Vector2(enemySpawnPoints[i].position.x, enemySpawnPoints[i].position.y), Quaternion.identity, enemySpawnPoints[i]));
                 sceneManager.enemyList[i].GetComponent<EnemyStats>().index = i;
-            }
-        }
-        else if (enemyIndexStage.Count == 4)
-        {
-            for (int i = 0; i < enemyIndexStage.Count / 2; i++)
-            {
-                sceneManager.enemyList.Add(Instantiate(allEnemyList[enemyIndexStage[i] - 1], new Vector2(enemySpawnPoints[i * 2].position.x, enemySpawnPoints[i * 2].position.y), Quaternion.identity, enemySpawnPoints[i * 2]));
-                sceneManager.enemyList[i].GetComponent<EnemyStats>().index = i*2;
-            }
-            for (int i = 2; i < enemyIndexStage.Count; i++)
-            {
-                sceneManager.enemyList.Add(Instantiate(allEnemyList[enemyIndexStage[i] - 1], new Vector2(enemySpawnPoints[i + 1].position.x, enemySpawnPoints[i + 1].position.y), Quaternion.identity, enemySpawnPoints[i + 1]));
-                sceneManager.enemyList[i].GetComponent<EnemyStats>().index = i + 1;
             }
         }
     }

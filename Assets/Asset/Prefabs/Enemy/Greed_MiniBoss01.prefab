@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 114274490510366358}
   - component: {fileID: 114516335636437424}
   - component: {fileID: 114526121730501234}
+  - component: {fileID: 114306781504201936}
   m_Layer: 0
   m_Name: Greed_MiniBoss01
   m_TagString: Untagged
@@ -240,8 +241,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1023516781907074}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.18, y: -1.46, z: 0}
-  m_LocalScale: {x: 0.8166816, y: 0.8166816, z: 0.8166816}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.3887818, y: 0.3887818, z: 0.3887818}
   m_Children: []
   m_Father: {fileID: 4956226298294122}
   m_RootOrder: 0
@@ -365,6 +366,20 @@ MonoBehaviour:
   maxCooldown: 1
   actionBar: {fileID: 114226160220369980}
   ATBFull: 0
+--- !u!114 &114306781504201936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1393198165434804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81366dbb76a5bca4d9a82ab56c69ae14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionCounterStatusList: []
+  realTimeStatusList: []
+  damageCounterStatusList: []
 --- !u!114 &114365296077771004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -437,8 +452,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9518dcbb996bef84da2b1c24a14e5aea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 40
-  baseStrength: 40
+  strength: 80
+  baseStrength: 80
   magic: 100
   baseMagic: 100
   spirit: 40
@@ -463,6 +478,7 @@ MonoBehaviour:
   actionTimer: 0
   name: 
   index: 0
+  position: 0
 --- !u!114 &114516335636437424
 MonoBehaviour:
   m_ObjectHideFlags: 1

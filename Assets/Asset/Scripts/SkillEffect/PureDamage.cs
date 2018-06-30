@@ -6,15 +6,16 @@ public class PureDamage : SkillEffect {
     
     private void Awake()
     {
-        effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
-        numOfTarget = 1;
-        damage = (int)user.GetComponent<PlayerStats>().strength;
-        effectDescription = "Deal " + damage + " damage";
+        
     }
 
     // Use this for initialization
     void Start ()
     {
+        effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
+        numOfTarget = 1;
+        damage = (int)user.GetComponent<PlayerStats>().strength;
+        effectDescription = "Deal " + damage + " damage";
     }
 	
 	// Update is called once per frame
