@@ -2,15 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ApplyPoison : SkillEffect {
+public class ApplyPoisonSingle : SkillEffect
+{
+    private void Awake()
+    {
+        effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
+        numOfTarget = 1;
+        effectDescription = "Poison Attack";
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public override void Execute(GameObject targetedEnemy)
+    {
+        targetedEnemy.GetComponent<EnemyStatusList>().realTimeStatusList.Add(new Poison());
+    }
 }

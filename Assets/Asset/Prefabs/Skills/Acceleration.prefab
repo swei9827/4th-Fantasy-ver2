@@ -58,7 +58,7 @@ MonoBehaviour:
   maxSkillCooldown: 0
   user: {fileID: 0}
   skillExecutionList:
-  - {fileID: 1543478165644538, guid: 8e37d7576af3b0949ae4784dca309efa, type: 2}
+  - {fileID: 1743996442951328, guid: 62e8337ba781f9e4cb6ef1460139574e, type: 2}
   skillExecutionHolder: []
 --- !u!212 &212755599199425604
 SpriteRenderer:

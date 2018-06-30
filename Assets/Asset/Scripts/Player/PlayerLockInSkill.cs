@@ -20,7 +20,7 @@ public class PlayerLockInSkill : MonoBehaviour
 
     private void Awake()
     {
-        chooseSkillBar.transform.localScale = new Vector3(chooseSkillBar.transform.localScale.x, 0, chooseSkillBar.transform.localScale.z);
+        //chooseSkillBar.transform.localScale = new Vector3(chooseSkillBar.transform.localScale.x, 0, chooseSkillBar.transform.localScale.z);
         battleStateManager = this.GetComponent<BattleStateManager>();
         skillList = this.GetComponent<Character_Skill_List>().skillHolder;
         if (this.transform.parent.name == "P1_Spawn_Point")
@@ -46,14 +46,14 @@ public class PlayerLockInSkill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        holdTimerInPercentage = holdTimer / timeNeeded;
+        chooseSkillBar.fillAmount = holdTimerInPercentage;
         if (battleStateManager.gameState == BattleStateManager.GAMESTATE.CHOOSING_SKILL)
         {
             if (Input.GetButton(playerButton))
             {
                 holdTimer += Time.deltaTime;
-                holdTimerInPercentage = holdTimer / timeNeeded;
                 //chooseActionBar.transform.localScale = new Vector3(chooseActionBar.transform.localScale.x, Mathf.Clamp(chooseActionBarInPercentage, 0, 1), chooseActionBar.transform.localScale.z);
-                chooseSkillBar.transform.localScale = new Vector3(chooseSkillBar.transform.localScale.x, Mathf.Clamp(holdTimerInPercentage, 0, 1), chooseSkillBar.transform.localScale.z);
                 if (holdTimer >= timeNeeded)
                 {
                     lockInSkill = skillList[2];

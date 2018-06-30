@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStatusList : MonoBehaviour {
+public class PlayerStatusList : MonoBehaviour
+{
 
-	//public List<StatusEffect>
-    
+    public List<StatusDetail> actionCounterStatusList;
+    public List<StatusDetail> realTimeStatusList;
+    public List<StatusDetail> damageCounterStatusList;
+
     // Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }

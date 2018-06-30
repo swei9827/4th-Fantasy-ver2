@@ -10,9 +10,8 @@ public class SkillEffect : MonoBehaviour {
     public GameObject user;
     public string effectDescription;
     public SKILL_EFFECT_TYPE effectType;
-    public float damage;
+    public int damage;
     public int numOfTarget;
-
     public enum SKILL_EFFECT_TYPE
     {
         OFFENSIVE = 0,

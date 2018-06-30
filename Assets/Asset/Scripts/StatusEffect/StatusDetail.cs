@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class StatusDetail : MonoBehaviour {
 
-    public DURATION_TYPE durationType;
-    public int intDuration;
-    public float floatDuration;
-    bool isActive;
+    public bool isActive;
+    public bool effect = false;
+    public GameObject user;
+    public string type;
 
-    public enum DURATION_TYPE
+    private void Awake()
     {
-        REAL_TIME = 0,
-        ACTION_COUNTER
+        user = this.transform.parent.gameObject;
     }
-    
+
     // Use this for initialization
-	void Start () {
+    void Start () {
 		
 	}
 	
@@ -30,10 +29,8 @@ public class StatusDetail : MonoBehaviour {
 
     }
 
-    public void RemoveStatus()
+    public virtual void RemoveStatus()
     {
-        //! check duration
-        //! pop
-        //! set stats to normal
+        
     }
 }

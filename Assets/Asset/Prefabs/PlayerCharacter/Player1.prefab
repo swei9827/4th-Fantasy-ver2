@@ -814,8 +814,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2544d6ab25bd05e43915825738dd742f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 40
-  baseStrength: 40
+  strength: 80
+  baseStrength: 80
   magic: 100
   baseMagic: 100
   spirit: 70
@@ -832,7 +832,7 @@ MonoBehaviour:
   baseStatusResistance: []
   health: 400
   baseHealth: 400
-  speed: 70
+  speed: 35
   baseSpeed: 70
   evasion: 20
   baseEvasion: 20
@@ -855,6 +855,9 @@ MonoBehaviour:
   maxSelection: 100
   startSelection: 0
   playerButton: 
+  fullTimer: 0
+  timeTest: 0
+  isBarFull: 0
 --- !u!114 &114936348404863650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -878,7 +881,7 @@ MonoBehaviour:
   cursorIndex: 0
   holdTimer: 0
   timeNeeded: 1
-  targetedEnemy: []
+  targetedEnemy: {fileID: 0}
   targetCursorBar: {fileID: 1883806548833186}
   holdTimerInPercentage: 0
   isTargetLockedIn: 0

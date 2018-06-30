@@ -17,7 +17,7 @@ public class PlayerSkillChooseTarget : MonoBehaviour
     public int cursorIndex;
     public float holdTimer;
     public float timeNeeded;
-    public List<GameObject> targetedEnemy;
+    public GameObject targetedEnemy;
     public GameObject targetCursorBar;
     public float holdTimerInPercentage;
     public bool isTargetLockedIn;
@@ -105,7 +105,6 @@ public class PlayerSkillChooseTarget : MonoBehaviour
                 holdTimer = 0f;
                 targetCursor.SetActive(false);
                 targetCursorBar.SetActive(false);
-                //battleStateManagerScript.gameState = BattleStateManager.GAMESTATE.EXECUTE_SKILL;
             }
 
         }
@@ -121,8 +120,6 @@ public class PlayerSkillChooseTarget : MonoBehaviour
                 if (cursorIndex >= enemyTargetCursorPoints.Count)
                 {
                     cursorIndex = 0;
-                    isTargetLockedIn = true;
-                    battleStateManagerScript.gameState = BattleStateManager.GAMESTATE.EXECUTE_SKILL;
                 }
             }
             else if (type == 2)
@@ -147,11 +144,11 @@ public class PlayerSkillChooseTarget : MonoBehaviour
                 //! Here also needs changing
                 if (type == 1)
                 {
-                    targetedEnemy.Add(enemyTargetCursorPoints[cursorIndex].transform.GetChild(0).gameObject);
+                    targetedEnemy=enemyTargetCursorPoints[cursorIndex].transform.GetChild(0).gameObject;
                 }
                 else if (type == 2)
                 {
-                    targetedEnemy.Add(playerTargetCursorPoints[cursorIndex].transform.GetChild(0).gameObject);
+                    targetedEnemy=playerTargetCursorPoints[cursorIndex].transform.GetChild(0).gameObject;
                 }
                 cursorIndex = 0;
                 isTargetLockedIn = true;

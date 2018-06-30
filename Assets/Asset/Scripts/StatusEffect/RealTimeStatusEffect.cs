@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RealTimeStatusEffect : StatusDetail {
 
+    public float floatDuration;
 	// Use this for initialization
 	void Start () {
 		

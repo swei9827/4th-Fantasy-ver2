@@ -190,13 +190,24 @@ public class PlayerSkillExecution : MonoBehaviour
         {
             for (int i = 0; i < playerLockInSkillScript.lockInSkill.GetComponent<SkillDetail>().skillExecutionHolder.Count; i++)
             {
-                //playerLockInSkillScript.lockInSkill.GetComponent<SkillDetail>().skillExecutionHolder[i].GetComponent<SkillEffect>().Execute(playerChooseTargetScript.targetedEnemy[i]);
+                playerLockInSkillScript.lockInSkill.GetComponent<SkillDetail>().skillExecutionHolder[i].GetComponent<SkillEffect>().Execute(playerChooseTargetScript.targetedEnemy);
             }
             playerLockInSkillScript.isSkillLockedIn = false;
             playerChooseTargetScript.isTargetLockedIn = false;
-            playerChooseTargetScript.targetedEnemy.Clear();
+            if (this.GetComponent<PlayerLockInSkill>().isPerfectTiming == true)
+            {
+                actionTimerBarScript.startSelection = 20;
+                this.GetComponent<PlayerLockInSkill>().isPerfectTiming = false;
+            }
+            else
+            {
+                actionTimerBarScript.startSelection = 0;
+            }
+            this.GetComponent<actionTimeBar>().isBarFull = false;
+            this.GetComponent<PlayerLockInSkill>().lockedInTimer = 0;
+            this.GetComponent<actionTimeBar>().fullTimer = 0;   
+            playerChooseTargetScript.targetedEnemy = null;
             actionTimerBarScript.selectionBar.fillAmount = 0;
-            actionTimerBarScript.startSelection = 0;
             battleStateManager.gameState = BattleStateManager.GAMESTATE.CHOOSING_SKILL;
         }
     }

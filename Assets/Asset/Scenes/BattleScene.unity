@@ -825,6 +825,111 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224496015999637612, guid: 6f8df232b4d86694eafe9bd5f248f995,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475825975694070, guid: 6f8df232b4d86694eafe9bd5f248f995,
+        type: 2}
+      propertyPath: speed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475825975694070, guid: 6f8df232b4d86694eafe9bd5f248f995,
+        type: 2}
+      propertyPath: baseSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475825975694070, guid: 6f8df232b4d86694eafe9bd5f248f995,
+        type: 2}
+      propertyPath: strength
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475825975694070, guid: 6f8df232b4d86694eafe9bd5f248f995,
+        type: 2}
+      propertyPath: baseStrength
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475825975694070, guid: 6f8df232b4d86694eafe9bd5f248f995,
+        type: 2}
+      propertyPath: magic
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475825975694070, guid: 6f8df232b4d86694eafe9bd5f248f995,
+        type: 2}
+      propertyPath: baseMagic
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475825975694070, guid: 6f8df232b4d86694eafe9bd5f248f995,
+        type: 2}
+      propertyPath: spirit
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475825975694070, guid: 6f8df232b4d86694eafe9bd5f248f995,
+        type: 2}
+      propertyPath: baseSpirit
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475825975694070, guid: 6f8df232b4d86694eafe9bd5f248f995,
+        type: 2}
+      propertyPath: defense
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475825975694070, guid: 6f8df232b4d86694eafe9bd5f248f995,
+        type: 2}
+      propertyPath: baseDefense
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475825975694070, guid: 6f8df232b4d86694eafe9bd5f248f995,
+        type: 2}
+      propertyPath: criticalChance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475825975694070, guid: 6f8df232b4d86694eafe9bd5f248f995,
+        type: 2}
+      propertyPath: baseCriticalChance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475825975694070, guid: 6f8df232b4d86694eafe9bd5f248f995,
+        type: 2}
+      propertyPath: criticalDamage
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475825975694070, guid: 6f8df232b4d86694eafe9bd5f248f995,
+        type: 2}
+      propertyPath: baseCriticalDamage
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475825975694070, guid: 6f8df232b4d86694eafe9bd5f248f995,
+        type: 2}
+      propertyPath: accuracy
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475825975694070, guid: 6f8df232b4d86694eafe9bd5f248f995,
+        type: 2}
+      propertyPath: baseAccuracy
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475825975694070, guid: 6f8df232b4d86694eafe9bd5f248f995,
+        type: 2}
+      propertyPath: health
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475825975694070, guid: 6f8df232b4d86694eafe9bd5f248f995,
+        type: 2}
+      propertyPath: baseHealth
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475825975694070, guid: 6f8df232b4d86694eafe9bd5f248f995,
+        type: 2}
+      propertyPath: evasion
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475825975694070, guid: 6f8df232b4d86694eafe9bd5f248f995,
+        type: 2}
+      propertyPath: baseEvasion
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6f8df232b4d86694eafe9bd5f248f995, type: 2}
   m_IsPrefabParent: 0
@@ -855,6 +960,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2049660654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2049660655}
+  m_Layer: 0
+  m_Name: MagicPureDamagae
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2049660655
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2049660654}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1025.1101, y: 493.62, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2127152359
 GameObject:
