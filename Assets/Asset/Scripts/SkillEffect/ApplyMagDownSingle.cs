@@ -25,7 +25,7 @@ public class ApplyMagDownSingle : SkillEffect
 
     public override void Execute(GameObject targetedEnemy)
     {
-        targetedEnemy.GetComponent<EnemyStatusList>().actionCounterStatusList.Add(new MagDown());
+        targetedEnemy.GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new MagDown());
     }
 }
 

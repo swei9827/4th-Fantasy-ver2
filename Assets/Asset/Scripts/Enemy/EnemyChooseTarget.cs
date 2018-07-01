@@ -2,28 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyChooseTarget : MonoBehaviour {
-
-    public List<GameObject> playerList;
-    public bool isTargetChosen = false;
-    public bool isSkillUsed = false;
-    public GameObject hiAggroTarget;
-    public GameObject loAggroTarget;
-    public int randNum;
-    public GameObject Target;
-    public SceneManager SceneManager;
-    // public Image cursor;
+public class EnemyChooseTarget : EnemyVariableManager {
 
     private void Awake()
+    {            
+    }
+
+    void Start()
     {
-        //enemySpawnScript = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<Enemy_Spawn>();
-        SceneManager = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>();
-        playerList = SceneManager.playerList;
     }
 
     void Update()
     {
-        if (!isTargetChosen && this.GetComponent<EnemyActionTimeBar>().ATBFull)
+        /*if (!isTargetChosen && this.GetComponent<EnemyActionTimeBar>().ATBFull)
         {
             randNum = Random.Range(1, 101);
             if (playerList[0].GetComponent<PlayerStats>().aggro > playerList[1].GetComponent<PlayerStats>().aggro)
@@ -59,6 +50,46 @@ public class EnemyChooseTarget : MonoBehaviour {
                 isSkillUsed = false;
                 this.GetComponent<EnemyActionTimeBar>().ATBFull = false;
             }
+        }*/
+
+        if (!isTargetChosen)
+        {
+            randNum = Random.Range(1, 101);
+            if (playerList[0].GetComponent<PlayerStats>().aggro > playerList[1].GetComponent<PlayerStats>().aggro)
+            {
+                hiAggroTarget = playerList[0];
+                loAggroTarget = playerList[1];
+            }
+            else if (playerList[1].GetComponent<PlayerStats>().aggro > playerList[0].GetComponent<PlayerStats>().aggro)
+            {
+                hiAggroTarget = playerList[1];
+                loAggroTarget = playerList[0];
+            }
+            else
+            {
+                /*if (randNum <= 50)
+                {
+                    hiAggroTarget = playerList[0];
+                    loAggroTarget = playerList[1];
+                }
+                if (randNum >= 51)
+                {
+                    hiAggroTarget = playerList[1];
+                    loAggroTarget = playerList[0];
+                }*/
+                hiAggroTarget = playerList[0];
+                loAggroTarget = playerList[1];
+            }
+            
+        }
+        else
+        {
+            if (isSkillUsed)
+            {
+                isTargetChosen = false;
+                isSkillUsed = false;
+                this.GetComponent<EnemyActionTimeBar>().ATBFull = false;
+            }
         }
 
         if (randNum <= 65)
@@ -69,10 +100,6 @@ public class EnemyChooseTarget : MonoBehaviour {
         {
             Target = loAggroTarget;
         }
-    }
-
-    private void Start()
-    {
-
+        isTargetChosen = true;
     }
 }

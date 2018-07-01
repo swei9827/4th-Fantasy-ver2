@@ -27,7 +27,7 @@ public class ApplyBleedArea : SkillEffect
     {
         for (int i = 0; i < enemyList.Count; i++)
         {
-            enemyList[i].GetComponent<EnemyStatusList>().actionCounterStatusList.Add(new Bleed());
+            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new Bleed());
         }
     }
 }

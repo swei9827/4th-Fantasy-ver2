@@ -28,7 +28,7 @@ public class ApplyAccuracyDownArea : SkillEffect
     {
         for (int i = 0; i < enemyList.Count; i++)
         {
-            enemyList[i].GetComponent<EnemyStatusList>().actionCounterStatusList.Add(gameObject.AddComponent<AccuracyDown>());
+            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(gameObject.AddComponent<AccuracyDown>());
         }
         Debug.Log("HEY");
     }

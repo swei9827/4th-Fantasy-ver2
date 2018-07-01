@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ApplySpiritDownArea : SkillEffect
-{
+public class EnemyHowl : SkillEffect {
+
+    public GameObject wolf;
     private void Awake()
     {
         effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
         numOfTarget = 0;
-        effectDescription = "Spirit Down to All Enemy";
+        effectDescription = "Summon a wolf to the battlefield(max of 3 enemies)";
     }
 
     // Use this for initialization
@@ -23,11 +24,11 @@ public class ApplySpiritDownArea : SkillEffect
 
     }
 
-    public override void Execute(GameObject targetedEnemy)
+    public override void Execute()
     {
-        for (int i = 0; i < enemyList.Count; i++)
+        /*if(user.GetComponent<EnemyVariableManager>().SceneManager.enemyList.Count <3)
         {
-            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new SpiritDown());
-        }
+            for(int i=0;i<)
+        }*/
     }
 }

@@ -170,7 +170,7 @@ GameObject:
   m_Layer: 0
   m_Name: Enemy_Spawn_Point_04
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
@@ -198,7 +198,7 @@ GameObject:
   m_Layer: 0
   m_Name: Enemy_Spawn_Point_02
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -226,7 +226,7 @@ GameObject:
   m_Layer: 0
   m_Name: P2_Spawn_Point
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -398,7 +398,7 @@ GameObject:
   m_Layer: 0
   m_Name: Enemy_Spawn_Point_05
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
@@ -574,7 +574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd07beabd3384a4382d02b1be07de4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyIndexStage: 06000000
+  enemyIndexStage: 060000000600000006000000
   enemySpawnPoints:
   - {fileID: 2127152360}
   - {fileID: 139971051}
@@ -855,7 +855,7 @@ GameObject:
   m_Layer: 0
   m_Name: P1_Spawn_Point
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -939,7 +939,7 @@ GameObject:
   m_Layer: 0
   m_Name: Enemy_Spawn_Point_03
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1035,7 +1035,7 @@ GameObject:
   m_Layer: 0
   m_Name: Enemy_Spawn_Point_01
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

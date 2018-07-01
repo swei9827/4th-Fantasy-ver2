@@ -25,7 +25,7 @@ public class ApplyCurseSingle : SkillEffect
 
     public override void Execute(GameObject targetedEnemy)
     {
-        targetedEnemy.GetComponent<EnemyStatusList>().actionCounterStatusList.Add(new Cursed());
+        targetedEnemy.GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new Cursed());
     }
 }
 

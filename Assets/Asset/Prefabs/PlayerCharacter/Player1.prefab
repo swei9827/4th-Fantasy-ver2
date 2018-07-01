@@ -832,14 +832,14 @@ MonoBehaviour:
   baseStatusResistance: []
   health: 400
   baseHealth: 400
-  speed: 100
-  baseSpeed: 70
+  speed: 60
+  baseSpeed: 60
   evasion: 20
   baseEvasion: 20
   timeNeeded: 0
   actionTimer: 0
   name: Exiled Demon
-  aggro: 0
+  aggro: 10
 --- !u!114 &114858894647685826
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -3,12 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyActionTimeBar : MonoBehaviour {
-
-    public float curCooldown;
-    public float maxCooldown;
-    public Image actionBar;
-    public bool ATBFull = false;
+public class EnemyActionTimeBar : EnemyVariableManager {    
 
     // Use this for initialization
     void Start ()
@@ -16,7 +11,6 @@ public class EnemyActionTimeBar : MonoBehaviour {
         maxCooldown = 1;
         actionBar.fillAmount = 0;
         curCooldown = 0;
-        Debug.Log(actionBar.fillAmount);
 	}
 	
 	// Update is called once per frame

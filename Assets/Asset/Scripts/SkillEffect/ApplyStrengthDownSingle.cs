@@ -25,7 +25,7 @@ public class ApplyStrengthDownSingle : SkillEffect
 
     public override void Execute(GameObject targetedEnemy)
     {
-        targetedEnemy.GetComponent<EnemyStatusList>().actionCounterStatusList.Add(new StrengthDown());
+        targetedEnemy.GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new StrengthDown());
     }
 }
 

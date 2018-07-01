@@ -25,7 +25,7 @@ public class ApplyCritDownSingle : SkillEffect
 
     public override void Execute(GameObject targetedEnemy)
     {
-        targetedEnemy.GetComponent<EnemyStatusList>().actionCounterStatusList.Add(new CritDown());
+        targetedEnemy.GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new CritDown());
     }
 }
 

@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4956226298294122}
+  - component: {fileID: 114726112350143646}
   - component: {fileID: 114475825975694070}
   - component: {fileID: 114452993744476542}
   - component: {fileID: 114274490510366358}
@@ -366,6 +367,26 @@ MonoBehaviour:
   maxCooldown: 1
   actionBar: {fileID: 114226160220369980}
   ATBFull: 0
+  actionCounterStatusList: []
+  realTimeStatusList: []
+  damageCounterStatusList: []
+  enemyStats: {fileID: 0}
+  healthBar: {fileID: 0}
+  healthInPercentage: 0
+  playerList: []
+  isTargetChosen: 0
+  isSkillUsed: 0
+  hiAggroTarget: {fileID: 0}
+  loAggroTarget: {fileID: 0}
+  randNum: 0
+  Target: {fileID: 0}
+  SceneManager: {fileID: 0}
+  randNo: 0
+  enemyList: []
+  UltiUsed: 0
+  canUseUlti: 0
+  skillPercentageUpperLimit: 
+  something: 0
 --- !u!114 &114306781504201936
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -377,9 +398,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81366dbb76a5bca4d9a82ab56c69ae14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionCounterStatusList: []
-  realTimeStatusList: []
-  damageCounterStatusList: []
 --- !u!114 &114365296077771004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -412,8 +430,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a960c6560d694ef44a0102b2c88fda2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curCooldown: 0
+  maxCooldown: 0
+  actionBar: {fileID: 0}
+  ATBFull: 0
+  actionCounterStatusList: []
+  realTimeStatusList: []
+  damageCounterStatusList: []
+  enemyStats: {fileID: 0}
   healthBar: {fileID: 114052714241482826}
   healthInPercentage: 1
+  playerList: []
+  isTargetChosen: 0
+  isSkillUsed: 0
+  hiAggroTarget: {fileID: 0}
+  loAggroTarget: {fileID: 0}
+  randNum: 0
+  Target: {fileID: 0}
+  SceneManager: {fileID: 0}
+  randNo: 0
+  enemyList: []
+  UltiUsed: 0
+  canUseUlti: 0
+  skillPercentageUpperLimit: 
+  something: 0
 --- !u!114 &114466516781990232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -490,10 +530,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29db2c257a0a51a4b83db3166d71e777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curCooldown: 0
+  maxCooldown: 0
+  actionBar: {fileID: 0}
+  ATBFull: 0
+  actionCounterStatusList: []
+  realTimeStatusList: []
+  damageCounterStatusList: []
+  enemyStats: {fileID: 0}
+  healthBar: {fileID: 0}
+  healthInPercentage: 0
+  playerList: []
+  isTargetChosen: 0
+  isSkillUsed: 0
+  hiAggroTarget: {fileID: 0}
+  loAggroTarget: {fileID: 0}
+  randNum: 0
+  Target: {fileID: 0}
+  SceneManager: {fileID: 0}
   randNo: 50
   enemyList: []
   UltiUsed: 0
   canUseUlti: 0
+  skillPercentageUpperLimit: 
+  something: 0
 --- !u!114 &114526121730501234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -505,6 +565,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0b902b61167390498dbcdaa6dfdf183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curCooldown: 0
+  maxCooldown: 0
+  actionBar: {fileID: 0}
+  ATBFull: 0
+  actionCounterStatusList: []
+  realTimeStatusList: []
+  damageCounterStatusList: []
+  enemyStats: {fileID: 0}
+  healthBar: {fileID: 0}
+  healthInPercentage: 0
   playerList:
   - {fileID: 0}
   - {fileID: 0}
@@ -515,6 +585,47 @@ MonoBehaviour:
   randNum: 21
   Target: {fileID: 0}
   SceneManager: {fileID: 0}
+  randNo: 0
+  enemyList: []
+  UltiUsed: 0
+  canUseUlti: 0
+  skillPercentageUpperLimit: 
+  something: 0
+--- !u!114 &114726112350143646
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1393198165434804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d9326829b1ce2499390e78e310f894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curCooldown: 0
+  maxCooldown: 0
+  actionBar: {fileID: 0}
+  ATBFull: 0
+  actionCounterStatusList: []
+  realTimeStatusList: []
+  damageCounterStatusList: []
+  enemyStats: {fileID: 114475825975694070}
+  healthBar: {fileID: 0}
+  healthInPercentage: 0
+  playerList: []
+  isTargetChosen: 0
+  isSkillUsed: 0
+  hiAggroTarget: {fileID: 0}
+  loAggroTarget: {fileID: 0}
+  randNum: 0
+  Target: {fileID: 0}
+  SceneManager: {fileID: 0}
+  randNo: 0
+  enemyList: []
+  UltiUsed: 0
+  canUseUlti: 0
+  skillPercentageUpperLimit: 
+  something: 0
 --- !u!114 &114738223754379278
 MonoBehaviour:
   m_ObjectHideFlags: 1

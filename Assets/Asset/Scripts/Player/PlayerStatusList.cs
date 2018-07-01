@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStatusList : MonoBehaviour
+public class PlayerStatusList : PlayerVariableManager
 {
 
     public List<StatusDetail> actionCounterStatusList;

@@ -7,13 +7,4 @@ public class EnemyStats : GeneralStats {
     public int index;
     public int position;
     
-    // Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

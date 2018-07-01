@@ -2,14 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyChooseSkill : MonoBehaviour {
-
-    public int randNo;
-    //public enemyTarget eT;
-    public List<GameObject> enemyList;
-    public bool UltiUsed = false;
-    public bool canUseUlti = false;
-
+public class EnemyChooseSkill : EnemyVariableManager {
     // Use this for initialization
     void Start()
     {
@@ -63,7 +56,7 @@ public class EnemyChooseSkill : MonoBehaviour {
     {
         randNo = Random.Range(1, 101);
 
-        if (randNo <= 50)
+        /*if (randNo <= 50)
         {
             Debug.Log("use skill 1");
             float tempDmg = this.GetComponent<EnemyStats>().strength - (this.GetComponent<EnemyChooseTarget>().Target.GetComponent<PlayerStats>().defense * 0.8f);
@@ -88,7 +81,8 @@ public class EnemyChooseSkill : MonoBehaviour {
             float tempDmg = (this.GetComponent<EnemyStats>().magic * 2.5f) - (this.GetComponent<EnemyChooseTarget>().Target.GetComponent<PlayerStats>().spirit * 0.7f);
             this.GetComponent<EnemyChooseTarget>().hiAggroTarget.GetComponent<PlayerStats>().health -= tempDmg;
             this.GetComponent<EnemyChooseTarget>().loAggroTarget.GetComponent<PlayerStats>().health -= tempDmg;
-        }
+        }*/
+
         this.GetComponent<EnemyChooseTarget>().isSkillUsed = true;
     }
 }
