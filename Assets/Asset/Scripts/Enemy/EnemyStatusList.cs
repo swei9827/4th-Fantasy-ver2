@@ -18,6 +18,20 @@ public class EnemyStatusList : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        for (int i = 0; i < actionStatusList.Count; i++)
+        {
+            actionStatusList[i].GetComponent<StatusDetail>().user = gameObject;
+            actionStatusList[i].GetComponent<StatusDetail>().userType = StatusDetail.UserType.ENEMY;
+        }
+        for (int i = 0; i < secondsStatusList.Count; i++)
+        {
+            secondsStatusList[i].GetComponent<StatusDetail>().user = gameObject;
+            secondsStatusList[i].GetComponent<StatusDetail>().userType = StatusDetail.UserType.ENEMY;
+        }
+        for (int i = 0; i < damageCountStatusList.Count; i++)
+        {
+            damageCountStatusList[i].GetComponent<StatusDetail>().user = gameObject;
+            damageCountStatusList[i].GetComponent<StatusDetail>().userType = StatusDetail.UserType.ENEMY;
+        }
     }
 }

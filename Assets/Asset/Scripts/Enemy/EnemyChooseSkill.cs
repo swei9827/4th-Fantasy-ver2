@@ -58,13 +58,13 @@ public class EnemyChooseSkill : MonoBehaviour {
             }
             for (int i = 0; i < GetComponent<EnemyStatusList>().actionStatusList.Count; i++)
             {
-                GetComponent<EnemyStatusList>().actionStatusList[i].GetComponent<StatusDetail>().user = gameObject;
-                GetComponent<EnemyStatusList>().actionStatusList[i].GetComponent<StatusDetail>().DoEffect();
-                if(!GetComponent<EnemyStatusList>().actionStatusList[i].GetComponent<StatusDetail>().isActive)
+                if (!GetComponent<EnemyStatusList>().actionStatusList[i].GetComponent<StatusDetail>().isActive)
                 {
                     GetComponent<EnemyStatusList>().actionStatusList[i].GetComponent<StatusDetail>().RemoveStatus();
                     GetComponent<EnemyStatusList>().actionStatusList.Remove(GetComponent<EnemyStatusList>().actionStatusList[i]);
                 }
+
+                GetComponent<EnemyStatusList>().actionStatusList[i].GetComponent<StatusDetail>().DoEffect();
             }
         }
         

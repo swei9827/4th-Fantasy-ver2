@@ -56,19 +56,19 @@ public class CriesOfTheDemon : SkillEffect
         }
         for(int j=0;j<playerList.Count;j++)
         {
-            if (playerList[j] == this)
+            if (playerList[j] == user)
             {
                 continue;
             }
-            for (int k = 0; k < status.Count; k++)
+            for (int y = 0; y < status.Count; y++)
             {
-                if (status[k].GetComponent<StatusDetail>() is ActionCounterStatusEffect)
+                if (status[y].GetComponent<StatusDetail>() is ActionCounterStatusEffect)
                 {
-                    playerList[j].GetComponent<EnemyStatusList>().actionStatusList.Add(Instantiate(status[k]));
+                    playerList[j].GetComponent<PlayerStatusList>().actionStatusList.Add(Instantiate(status[y]));
                 }
-                else if (status[k].GetComponent<StatusDetail>() is RealTimeStatusEffect)
+                else if (status[y].GetComponent<StatusDetail>() is RealTimeStatusEffect)
                 {
-                    playerList[j].GetComponent<EnemyStatusList>().secondsStatusList.Add(Instantiate(status[k]));
+                    playerList[j].GetComponent<PlayerStatusList>().secondsStatusList.Add(Instantiate(status[y]));
                 }
             }
             playerList[j].GetComponent<PlayerStatusList>().actionStatusList.Add(Instantiate(recoverAfterDamage));

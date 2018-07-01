@@ -29,11 +29,11 @@ public class Bleed : ActionCounterStatusEffect
         }
         if (userType == UserType.PLAYER)
         {
-            user.GetComponent<PlayerStats>().health -= (int)(user.GetComponent<PlayerStats>().baseHealth * 0.05f * user.GetComponent<PlayerStats>().defense);
+            user.GetComponent<PlayerStats>().health -= (int)(user.GetComponent<PlayerStats>().baseHealth * 0.05f - user.GetComponent<PlayerStats>().defense);
         }
         else if (userType == UserType.ENEMY)
         {
-            user.GetComponent<EnemyStats>().health -= (int)(user.GetComponent<EnemyStats>().baseHealth * 0.05f * user.GetComponent<EnemyStats>().defense);
+            user.GetComponent<EnemyStats>().health -= (int)(user.GetComponent<EnemyStats>().baseHealth * 0.05f - user.GetComponent<EnemyStats>().defense);
         }
         intDuration--;
         
