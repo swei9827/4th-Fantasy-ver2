@@ -28,7 +28,7 @@ public class ApplyHasteArea : SkillEffect
     {
         for (int i = 0; i < playerList.Count; i++)
         {
-            playerList[i].GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new Haste());
+            playerList[i].GetComponent<PlayerStatusList>().actionStatusList.Add(Instantiate(status[0]));
         }
     }
 }

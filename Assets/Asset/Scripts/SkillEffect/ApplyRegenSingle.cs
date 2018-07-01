@@ -25,7 +25,7 @@ public class ApplyRegenSingle : SkillEffect
 
     public override void Execute(GameObject targetedEnemy)
     {
-        targetedEnemy.GetComponent<PlayerStatusList>().realTimeStatusList.Add(new Regen());
+        targetedEnemy.GetComponent<PlayerStatusList>().secondsStatusList.Add(Instantiate(status[0]));
         GameObject.Find("SceneManager").GetComponent<NeutralVariable>().regenCasterMag = (int)(user.GetComponent<PlayerStats>().magic * 0.5f);
     }
 }

@@ -25,7 +25,7 @@ public class ApplyDefenseDownSingle : SkillEffect
 
     public override void Execute(GameObject targetedEnemy)
     {
-        targetedEnemy.GetComponent<EnemyStatusList>().actionCounterStatusList.Add(new DefenseDown());
+        targetedEnemy.GetComponent<EnemyStatusList>().actionStatusList.Add(Instantiate(status[0]));
     }
 }
 

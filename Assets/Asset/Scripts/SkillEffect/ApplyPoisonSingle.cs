@@ -25,6 +25,6 @@ public class ApplyPoisonSingle : SkillEffect
 
     public override void Execute(GameObject targetedEnemy)
     {
-        targetedEnemy.GetComponent<EnemyStatusList>().realTimeStatusList.Add(new Poison());
+        targetedEnemy.GetComponent<EnemyStatusList>().secondsStatusList.Add(Instantiate(status[0]));
     }
 }

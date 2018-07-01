@@ -25,7 +25,7 @@ public class ApplyEvaDownSingle : SkillEffect
 
     public override void Execute(GameObject targetedEnemy)
     {
-        targetedEnemy.GetComponent<EnemyStatusList>().actionCounterStatusList.Add(new EvaDown());
+        targetedEnemy.GetComponent<EnemyStatusList>().actionStatusList.Add(Instantiate(status[0]));
     }
 }
 

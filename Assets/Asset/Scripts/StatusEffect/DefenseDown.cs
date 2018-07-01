@@ -27,11 +27,18 @@ public class DefenseDown : ActionCounterStatusEffect
         if (intDuration <= 0)
         {
             isActive = false;
-            RemoveStatus();
         }
         if (!effect)
         {
-            user.GetComponent<PlayerStats>().defense -= (int)(user.GetComponent<PlayerStats>().baseDefense * 0.3f);
+            if (userType == UserType.PLAYER)
+            {
+                user.GetComponent<PlayerStats>().defense -= (int)(user.GetComponent<PlayerStats>().baseDefense * 0.3f);
+            }
+            else if (userType == UserType.ENEMY)
+            {
+                user.GetComponent<EnemyStats>().defense -= (int)(user.GetComponent<EnemyStats>().baseDefense * 0.3f);
+            }
+            
             effect = true;
         }
         intDuration--;
@@ -40,7 +47,14 @@ public class DefenseDown : ActionCounterStatusEffect
     }
     public override void RemoveStatus()
     {
-        user.GetComponent<PlayerStats>().defense += (int)(user.GetComponent<PlayerStats>().baseDefense * 0.3f);
+        if (userType == UserType.PLAYER)
+        {
+            user.GetComponent<PlayerStats>().defense += (int)(user.GetComponent<PlayerStats>().baseDefense * 0.3f);
+        }
+        else if (userType == UserType.ENEMY)
+        {
+            user.GetComponent<EnemyStats>().defense += (int)(user.GetComponent<EnemyStats>().baseDefense * 0.3f);
+        }
         effect = false;
     }
 }

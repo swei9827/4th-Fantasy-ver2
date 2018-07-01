@@ -8,6 +8,7 @@ public class SoulHuntDamage : SkillEffect
 
     private void Awake()
     {
+        Assign();
         effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
         numOfTarget = 1;
         damage = (int)(user.GetComponent<PlayerStats>().strength * 0.5f + user.GetComponent<PlayerStats>().magic *0.5f + user.GetComponent<PlayerStats>().baseStrength + user.GetComponent<PlayerStats>().baseMagic);

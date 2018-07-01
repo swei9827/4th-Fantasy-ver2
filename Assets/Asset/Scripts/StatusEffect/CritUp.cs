@@ -27,11 +27,17 @@ public class CritUp : ActionCounterStatusEffect
         if (intDuration <= 0)
         {
             isActive = false;
-            RemoveStatus();
         }
         if (!effect)
-        { 
-            user.GetComponent<PlayerStats>().criticalChance += 10;
+        {
+            if (userType == UserType.PLAYER)
+            {
+                user.GetComponent<PlayerStats>().criticalChance += 10;
+            }
+            else if (userType == UserType.ENEMY)
+            {
+                user.GetComponent<EnemyStats>().criticalChance += 10;
+            }
             effect = true;
         }
         intDuration--;
@@ -40,7 +46,14 @@ public class CritUp : ActionCounterStatusEffect
     }
     public override void RemoveStatus()
     {
-        user.GetComponent<PlayerStats>().criticalChance -= 10;
+        if(userType == UserType.PLAYER)
+        {
+            user.GetComponent<PlayerStats>().criticalChance -= 10;
+        }
+            else if (userType == UserType.ENEMY)
+        {
+            user.GetComponent<EnemyStats>().criticalChance -= 10;
+        }
         effect = false;
     }
 }

@@ -27,7 +27,7 @@ public class ApplyStrengthUpArea : SkillEffect
     {
         for (int i = 0; i < playerList.Count; i++)
         {
-            playerList[i].GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new StrengthUp());
+            playerList[i].GetComponent<PlayerStatusList>().actionStatusList.Add(Instantiate(status[0]));
         }
     }
 }

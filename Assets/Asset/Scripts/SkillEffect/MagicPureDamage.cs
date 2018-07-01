@@ -8,7 +8,7 @@ public class MagicPureDamage : SkillEffect
 
     private void Awake()
     {
-        user = transform.parent.parent.parent.gameObject;
+        Assign();
         effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
         numOfTarget = 1;
         damage = (int)user.GetComponent<PlayerStats>().magic;

@@ -30,7 +30,6 @@ public class EvasionUpDamageCounter : DamageCounterStatusEffects
         if(damageCounter<=0)
         {
             isActive = false;
-            RemoveStatus();
         }
     }
     public override void RemoveStatus()

@@ -27,11 +27,17 @@ public class StrengthUp : ActionCounterStatusEffect
         if (intDuration <= 0)
         {
             isActive = false;
-            RemoveStatus();
         }
         if (!effect)
         {
-            user.GetComponent<PlayerStats>().strength += (int)(user.GetComponent<PlayerStats>().baseStrength * 0.5f);
+            if (userType == UserType.PLAYER)
+            {
+                user.GetComponent<PlayerStats>().strength += (int)(user.GetComponent<PlayerStats>().baseStrength * 0.5f);
+            }
+            else if (userType == UserType.ENEMY)
+            {
+                user.GetComponent<EnemyStats>().strength += (int)(user.GetComponent<EnemyStats>().baseStrength * 0.5f);
+            }
             effect = true;
         }
         intDuration--;
@@ -40,7 +46,14 @@ public class StrengthUp : ActionCounterStatusEffect
     }
     public override void RemoveStatus()
     {
-        user.GetComponent<PlayerStats>().strength -= (int)(user.GetComponent<PlayerStats>().baseStrength * 0.5f);
+        if (userType == UserType.PLAYER)
+        {
+            user.GetComponent<PlayerStats>().strength -= (int)(user.GetComponent<PlayerStats>().baseStrength * 0.5f);
+        }
+        else if (userType == UserType.ENEMY)
+        {
+            user.GetComponent<EnemyStats>().strength -= (int)(user.GetComponent<EnemyStats>().baseStrength * 0.5f);
+        }
         effect = false;
     }
 }

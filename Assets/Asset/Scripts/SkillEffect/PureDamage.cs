@@ -6,6 +6,7 @@ public class PureDamage : SkillEffect {
     
     private void Awake()
     {
+        Assign();
         effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
         numOfTarget = 1;
         damage = (int)user.GetComponent<PlayerStats>().strength;

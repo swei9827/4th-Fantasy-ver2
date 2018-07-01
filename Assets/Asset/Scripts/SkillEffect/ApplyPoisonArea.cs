@@ -27,7 +27,7 @@ public class ApplyPoisonArea : SkillEffect
     {
         for (int i = 0; i < enemyList.Count; i++)
         {
-            enemyList[i].GetComponent<EnemyStatusList>().realTimeStatusList.Add(new Poison());
+            enemyList[i].GetComponent<EnemyStatusList>().secondsStatusList.Add(Instantiate(status[0]));
         }
     }
 }

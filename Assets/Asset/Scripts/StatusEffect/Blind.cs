@@ -27,23 +27,41 @@ public class Blind : ActionCounterStatusEffect
         if (intDuration <= 0)
         {
             isActive = false;
-            RemoveStatus();
         }
         if (!effect)
         {
-            user.GetComponent<PlayerStats>().defense -= (int)(user.GetComponent<PlayerStats>().baseDefense * 0.1f);
-            user.GetComponent<PlayerStats>().accuracy -= 50;
-            user.GetComponent<PlayerStats>().evasion -= 5;
-            effect = true;
+            if (userType == UserType.PLAYER)
+            {
+                user.GetComponent<PlayerStats>().defense -= (int)(user.GetComponent<PlayerStats>().baseDefense * 0.1f);
+                user.GetComponent<PlayerStats>().accuracy -= 50;
+                user.GetComponent<PlayerStats>().evasion -= 5;
+                effect = true;
+            }
+            else if (userType == UserType.ENEMY)
+            {
+                user.GetComponent<EnemyStats>().defense -= (int)(user.GetComponent<EnemyStats>().baseDefense * 0.1f);
+                user.GetComponent<EnemyStats>().accuracy -= 50;
+                user.GetComponent<EnemyStats>().evasion -= 5;
+                effect = true;
+            }
         }
         intDuration--;
         
     }
     public override void RemoveStatus()
     {
-        user.GetComponent<PlayerStats>().defense += (int)(user.GetComponent<PlayerStats>().baseDefense * 0.1f);
-        user.GetComponent<PlayerStats>().accuracy += 50;
-        user.GetComponent<PlayerStats>().evasion += 5;
+        if (userType == UserType.PLAYER)
+        {
+            user.GetComponent<PlayerStats>().defense += (int)(user.GetComponent<PlayerStats>().baseDefense * 0.1f);
+            user.GetComponent<PlayerStats>().accuracy += 50;
+            user.GetComponent<PlayerStats>().evasion += 5;
+        }
+        else if (userType == UserType.ENEMY)
+        {
+            user.GetComponent<EnemyStats>().defense += (int)(user.GetComponent<EnemyStats>().baseDefense * 0.1f);
+            user.GetComponent<EnemyStats>().accuracy += 50;
+            user.GetComponent<EnemyStats>().evasion += 5;
+        }
         effect = false;
     }
 }

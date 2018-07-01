@@ -27,11 +27,17 @@ public class EvaDown : ActionCounterStatusEffect
         if (intDuration <= 0)
         {
             isActive = false;
-            RemoveStatus();
         }
         if (!effect)
         {
-            user.GetComponent<PlayerStats>().spirit -= 30;
+            if (userType == UserType.PLAYER)
+            {
+                user.GetComponent<PlayerStats>().evasion -= 30;
+            }
+            else if (userType == UserType.ENEMY)
+            {
+                user.GetComponent<EnemyStats>().evasion -= 30;
+            }
             effect = true;
         }
         intDuration--;
@@ -40,7 +46,14 @@ public class EvaDown : ActionCounterStatusEffect
     }
     public override void RemoveStatus()
     {
-        user.GetComponent<PlayerStats>().spirit += 30;
+        if (userType == UserType.PLAYER)
+        {
+            user.GetComponent<PlayerStats>().evasion += 30;
+        }
+        else if (userType == UserType.ENEMY)
+        {
+            user.GetComponent<EnemyStats>().evasion += 30;
+        }
         effect = false;
     }
 }

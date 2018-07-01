@@ -25,7 +25,7 @@ public class ApplyAccuracyDownSingle : SkillEffect
 
     public override void Execute(GameObject targetedEnemy)
     {
-        targetedEnemy.GetComponent<EnemyStatusList>().actionCounterStatusList.Add(new AccuracyDown());
+        targetedEnemy.GetComponent<EnemyStatusList>().actionStatusList.Add(Instantiate(status[0]));
     }
 }
 

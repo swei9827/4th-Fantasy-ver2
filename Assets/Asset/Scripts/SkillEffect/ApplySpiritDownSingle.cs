@@ -25,7 +25,7 @@ public class ApplySpiritDownSingle : SkillEffect
 
     public override void Execute(GameObject targetedEnemy)
     {
-        targetedEnemy.GetComponent<EnemyStatusList>().actionCounterStatusList.Add(new SpiritDown());
+        targetedEnemy.GetComponent<EnemyStatusList>().actionStatusList.Add(Instantiate(status[0]));
     }
 }
 

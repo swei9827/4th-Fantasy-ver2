@@ -99,6 +99,10 @@ public class PlayerSkillChooseTarget : MonoBehaviour
                     ConfirmTarget(2);
                 }
             }
+            else
+            {
+                isTargetLockedIn = true;
+            }
             //isTargetLockedIn = true;
             if (isTargetLockedIn)
             {

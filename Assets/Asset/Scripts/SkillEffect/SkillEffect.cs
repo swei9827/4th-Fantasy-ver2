@@ -7,6 +7,7 @@ public class SkillEffect : MonoBehaviour {
 
     public List<GameObject> playerList;
     public List<GameObject> enemyList;
+    public List<GameObject> status;
     public GameObject user;
     public string effectDescription;
     public SKILL_EFFECT_TYPE effectType;
@@ -17,12 +18,6 @@ public class SkillEffect : MonoBehaviour {
         OFFENSIVE = 0,
         SUPPORTIVE,
         HEAL
-    }
-
-    private void Awake()
-    {
-        playerList = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().playerList;
-        enemyList = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().enemyList;
     }
 
     // Use this for initialization
@@ -38,5 +33,12 @@ public class SkillEffect : MonoBehaviour {
     public virtual void Execute(GameObject targetedEnemy)
     {
 
+    }
+
+    protected void Assign()
+    {
+        playerList = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().playerList;
+        enemyList = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().enemyList;
+        user = transform.parent.parent.parent.gameObject;
     }
 }

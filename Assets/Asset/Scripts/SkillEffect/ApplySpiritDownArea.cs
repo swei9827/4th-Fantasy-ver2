@@ -27,7 +27,7 @@ public class ApplySpiritDownArea : SkillEffect
     {
         for (int i = 0; i < enemyList.Count; i++)
         {
-            enemyList[i].GetComponent<EnemyStatusList>().actionCounterStatusList.Add(new SpiritDown());
+            enemyList[i].GetComponent<EnemyStatusList>().actionStatusList.Add(Instantiate(status[0]));
         }
     }
 }

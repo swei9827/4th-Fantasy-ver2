@@ -26,11 +26,17 @@ public class Haste : ActionCounterStatusEffect {
         if (intDuration <= 0)
         {
             isActive = false;
-            RemoveStatus();
         }
         if (!effect)
         {
-            user.GetComponent<PlayerStats>().speed += (int)(user.GetComponent<PlayerStats>().baseSpeed * 0.3f);
+            if (userType == UserType.PLAYER)
+            {
+                user.GetComponent<PlayerStats>().speed += (int)(user.GetComponent<PlayerStats>().baseSpeed * 0.3f);
+            }
+            else if (userType == UserType.ENEMY)
+            {
+                user.GetComponent<EnemyStats>().speed += (int)(user.GetComponent<EnemyStats>().baseSpeed * 0.3f);
+            }
             effect = true;
         }
         intDuration--;
@@ -38,7 +44,14 @@ public class Haste : ActionCounterStatusEffect {
     }
     public override void RemoveStatus()
     {
-        user.GetComponent<PlayerStats>().speed -= (int)(user.GetComponent<PlayerStats>().baseSpeed * 0.3f);
+        if (userType == UserType.PLAYER)
+        {
+            user.GetComponent<PlayerStats>().speed -= (int)(user.GetComponent<PlayerStats>().baseSpeed * 0.3f);
+        }
+        else if (userType == UserType.ENEMY)
+        {
+            user.GetComponent<EnemyStats>().speed -= (int)(user.GetComponent<EnemyStats>().baseSpeed * 0.3f);
+        }
         effect = false;
     }
 }

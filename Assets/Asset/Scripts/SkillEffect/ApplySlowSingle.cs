@@ -25,7 +25,7 @@ public class ApplySlowSingle : SkillEffect
 
     public override void Execute(GameObject targetedEnemy)
     {
-        targetedEnemy.GetComponent<EnemyStatusList>().actionCounterStatusList.Add(new Slow());
+        targetedEnemy.GetComponent<EnemyStatusList>().actionStatusList.Add(Instantiate(status[0]));
     }
 }
 

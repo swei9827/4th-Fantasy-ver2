@@ -27,7 +27,7 @@ public class ApplyCritUpArea : SkillEffect
     {
         for (int i = 0; i < playerList.Count; i++)
         {
-            playerList[i].GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new CritUp());
+            playerList[i].GetComponent<PlayerStatusList>().actionStatusList.Add(Instantiate(status[0]));
         }
     }
 }

@@ -25,8 +25,18 @@ public class ApplyTimePrietessSelfBuff : SkillEffect
 
     public override void Execute(GameObject targetedEnemy)
     {
-        user.GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new TimePriestessExtraSpeed());
-        user.GetComponent<PlayerStatusList>().damageCounterStatusList.Add(new EvasionUpDamageCounter());
+        for(int i=0;i<status.Count;i++)
+        {
+            if(status[i].GetComponent<StatusDetail>() is ActionCounterStatusEffect)
+            {
+                user.GetComponent<PlayerStatusList>().actionStatusList.Add(Instantiate(status[i]));
+            }
+            else if(status[i].GetComponent<StatusDetail>() is DamageCounterStatusEffects)
+            {
+                user.GetComponent<PlayerStatusList>().damageCountStatusList.Add(status[i]);
+            }        
+        }
+        
     }
 }
 

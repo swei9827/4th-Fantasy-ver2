@@ -11,10 +11,6 @@ public class AccuracyDown : ActionCounterStatusEffect
         type = "Bad";
     }
     // Use this for initialization
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -27,20 +23,34 @@ public class AccuracyDown : ActionCounterStatusEffect
         if (intDuration <= 0)
         {
             isActive = false;
-            RemoveStatus();
         }
         if (!effect)
         {
-            user.GetComponent<PlayerStats>().accuracy -= 30;
-            effect = true;
+            if(userType == UserType.PLAYER)
+            {
+                user.GetComponent<PlayerStats>().accuracy -= 30;
+                effect = true;
+            }
+            else if(userType == UserType.ENEMY)
+            {
+                user.GetComponent<EnemyStats>().accuracy -= 30;
+                effect = true;
+            } 
         }
         intDuration--;
-
 
     }
     public override void RemoveStatus()
     {
-        user.GetComponent<PlayerStats>().accuracy += 30;
-        effect = false;
+        if (userType == UserType.PLAYER)
+        {
+            user.GetComponent<PlayerStats>().accuracy += 30;
+            effect = false;
+        }
+        else if (userType == UserType.ENEMY)
+        {
+            user.GetComponent<EnemyStats>().accuracy += 30;
+            effect = false;
+        }
     }
 }

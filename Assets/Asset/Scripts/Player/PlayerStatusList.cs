@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerStatusList : MonoBehaviour
 {
 
-    public List<StatusDetail> actionCounterStatusList;
-    public List<StatusDetail> realTimeStatusList;
-    public List<StatusDetail> damageCounterStatusList;
+    public List<GameObject> actionStatusList;
+    public List<GameObject> secondsStatusList;
+    public List<GameObject> damageCountStatusList;
 
     // Use this for initialization
     void Start()
