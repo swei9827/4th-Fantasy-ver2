@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 114858894647685826}
   - component: {fileID: 114399965372311616}
   - component: {fileID: 114453472935659996}
+  - component: {fileID: 114997419839234580}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -904,6 +905,20 @@ MonoBehaviour:
   - {fileID: 1136784145477246, guid: 98ab0bceb1b4da548a94e1d7148e66c4, type: 2}
   - {fileID: 1257337590300978, guid: eaef0fde0d6f1fd43840b609fa338767, type: 2}
   skillHolder: []
+--- !u!114 &114997419839234580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1140889963708872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f48a649804532cb419931cbcc1e1fbef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionStatusList: []
+  secondsStatusList: []
+  damageCountStatusList: []
 --- !u!212 &212017559636622466
 SpriteRenderer:
   m_ObjectHideFlags: 1
