@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ActionCounterStatusEffect : StatusDetail {
 
-	// Use this for initialization
+    public int intDuration;
+
 	void Start () {
 		
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		
 	}

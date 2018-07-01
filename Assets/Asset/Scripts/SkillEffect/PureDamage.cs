@@ -3,31 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PureDamage : SkillEffect {
-
-    public GameObject testEnemy;
-
+    
     private void Awake()
     {
         effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
         numOfTarget = 1;
-        //damage = user.GetComponent<PlayerStats>().strength;
+        damage = (int)user.GetComponent<PlayerStats>().strength;
         effectDescription = "Deal " + damage + " damage";
     }
 
     // Use this for initialization
     void Start ()
     {
-        
     }
 	
 	// Update is called once per frame
-	void Update ()
-    {
-        damage = user.GetComponent<PlayerStats>().strength;
-    }
+	void Update () {
+		
+	}
 
     public override void Execute(GameObject targetedEnemy)
     {
-        targetedEnemy.GetComponent<EnemyStats>().health -= damage;
+        float multiplier;
+        if(Random.Range(1,100)<=user.GetComponent<PlayerStats>().criticalChance)
+        {
+            multiplier = 1.5f;
+        }
+        else
+        {
+            multiplier = 1;
+        }
+        float Dmg = (damage - targetedEnemy.GetComponent<EnemyStats>().defense * 0.8f)*multiplier;
+        targetedEnemy.GetComponent<EnemyStats>().health -= (int)Dmg;
+        
     }
 }
