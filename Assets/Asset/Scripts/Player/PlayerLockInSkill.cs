@@ -3,21 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerLockInSkill : MonoBehaviour
+public class PlayerLockInSkill : PlayerVariableManager
 {
-
-    public BattleStateManager battleStateManager;
-    public GameObject lockInSkill;
-    public List<GameObject> skillList;
-    public string playerButton;
-    public float holdTimer;
-    public float timeNeeded;
-    public bool isSkillLockedIn;
-    public float lockedInTimer;
-    public Image chooseSkillBar;
-    public float holdTimerInPercentage;
-    public bool isPerfectTiming;
-
     private void Awake()
     {
         //chooseSkillBar.transform.localScale = new Vector3(chooseSkillBar.transform.localScale.x, 0, chooseSkillBar.transform.localScale.z);

@@ -3,23 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerScrollSkill : MonoBehaviour {
-
-    /*public GameObject User;
-    GameObject tempSkill;
-    public Transform parent;
-    public int offset = 2;
-    public string playerButton;
-    public PauseManager pauseScript;
-    public bool isPaused;
-    public List<GameObject> playerSkillList;
-    public List<GameObject> skillList;*/
-
-    public string playerButton;
-    GameObject tempSkill;
-    public Character_Skill_List skillList;
-    public int offset;
-    public BattleStateManager battleStateManager;
+public class PlayerScrollSkill : PlayerVariableManager {
 
     private void Awake()
     {
@@ -31,7 +15,7 @@ public class PlayerScrollSkill : MonoBehaviour {
         {
             playerButton = "P2_Button";
         }
-        skillList = this.GetComponent<Character_Skill_List>();
+        skillListScript = this.GetComponent<Character_Skill_List>();
 
         offset = 5;
         battleStateManager = this.GetComponent<BattleStateManager>();
@@ -55,19 +39,19 @@ public class PlayerScrollSkill : MonoBehaviour {
     void Scroll()
     {
         //! adjusting the position of the skill
-        for (int i=0;i<skillList.skillHolder.Count;i++)
+        for (int i=0;i<skillListScript.skillHolder.Count;i++)
         {
-            skillList.skillHolder[i].transform.position = new Vector2(this.transform.GetChild(1).transform.position.x +3.8f -( offset + (i*0.6f)), this.transform.GetChild(1).transform.position.y-0.65f);
+            skillListScript.skillHolder[i].transform.position = new Vector2(this.transform.GetChild(1).transform.position.x +3.8f -( offset + (i*0.6f)), this.transform.GetChild(1).transform.position.y-0.65f);
         }
 
         if(Input.GetButtonUp(playerButton))
         {
-            tempSkill = skillList.skillHolder[4];
-            for(int i=0;i<skillList.skillHolder.Count - 1;i++)
+            tempSkill = skillListScript.skillHolder[4];
+            for(int i=0;i< skillListScript.skillHolder.Count - 1;i++)
             {
-                skillList.skillHolder[skillList.skillHolder.Count - 1 - i] = skillList.skillHolder[skillList.skillHolder.Count - 1 - i - 1];
+                skillListScript.skillHolder[skillListScript.skillHolder.Count - 1 - i] = skillListScript.skillHolder[skillListScript.skillHolder.Count - 1 - i - 1];
             }
-            skillList.skillHolder[0] = tempSkill;
+            skillListScript.skillHolder[0] = tempSkill;
         }
     }
 }

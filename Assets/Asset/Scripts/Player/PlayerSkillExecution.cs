@@ -127,7 +127,6 @@ public class PlayerSkillExecution : MonoBehaviour
     public PlayerLockInSkill playerLockInSkillScript;
     public PlayerSkillChooseTarget playerChooseTargetScript;
     public BattleStateManager battleStateManager;
-    public int reward;
     public GameObject testSkill;
     public GameObject testEnemy;
 
@@ -138,7 +137,6 @@ public class PlayerSkillExecution : MonoBehaviour
         playerLockInSkillScript = this.GetComponent<PlayerLockInSkill>();
         playerChooseTargetScript = this.GetComponent<PlayerSkillChooseTarget>();
         skillList = this.GetComponent<Character_Skill_List>().skillHolder;
-        reward = 10;
 
         //battleLog = GameObject.Find("Panel").GetComponent<PlayerBattleLog>();
         battleStateManager = this.GetComponent<BattleStateManager>();
