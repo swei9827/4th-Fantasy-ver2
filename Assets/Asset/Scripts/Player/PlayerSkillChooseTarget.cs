@@ -2,27 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSkillChooseTarget : MonoBehaviour
+public class PlayerSkillChooseTarget : PlayerVariableManager
 {
-
-    public List<Transform> playerTargetCursorPoints;
-    public List<Transform> enemyTargetCursorPoints;
-    public Enemy_Spawn enemySpawnScript;
-    public Player_Spawn playerSpawnScript;
-    public SceneManager sceneManagerScript;
-    public BattleStateManager battleStateManagerScript;
-    public GameObject targetCursor;
-    public int offset;
-    public string playerButton;
-    public int cursorIndex;
-    public float holdTimer;
-    public float timeNeeded;
-    public GameObject targetedEnemy;
-    public GameObject targetCursorBar;
-    public float holdTimerInPercentage;
-    public bool isTargetLockedIn;
-    public bool isEffectTargetLockedIn = false;
-
     private void Awake()
     {
         //! Filling up reference
@@ -30,21 +11,6 @@ public class PlayerSkillChooseTarget : MonoBehaviour
         playerSpawnScript = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<Player_Spawn>();
         sceneManagerScript = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>();
         battleStateManagerScript = this.GetComponent<BattleStateManager>();
-
-        //! Initializing the list of points that the target cursor can go to(enemy side)
-        for (int i = 0; i < sceneManagerScript.enemyList.Count; i++)
-        {
-            enemyTargetCursorPoints.Add(enemySpawnScript.enemySpawnPoints[sceneManagerScript.enemyList[i].GetComponent<EnemyStats>().index]);
-        }
-        //! target cursor points for the player side
-        for (int i = 0; i < playerSpawnScript.playerSpawnPoints.Count; i++)
-        {
-            playerTargetCursorPoints.Add(playerSpawnScript.playerSpawnPoints[i]);
-        }
-
-        //! Initializing the position of the target cursor
-        //offset = 2;
-        cursorIndex = 0;
 
         //! Filling up the reference for the playerButton
         if (this.transform.parent.name == "P1_Spawn_Point")
@@ -68,7 +34,8 @@ public class PlayerSkillChooseTarget : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SkillDetail sDetail = this.GetComponent<Character_Skill_List>().skillHolder[2].GetComponent<SkillDetail>();
+        /*SkillDetail sDetail = this.GetComponent<Character_Skill_List>().skillHolder[2].GetComponent<SkillDetail>();
+        
         //! Checking if the state of the player is choosing target
         if (battleStateManagerScript.gameState == BattleStateManager.GAMESTATE.CHOOSING_TARGET)
         {
@@ -107,7 +74,8 @@ public class PlayerSkillChooseTarget : MonoBehaviour
                 targetCursorBar.SetActive(false);
             }
 
-        }
+        }*/
+        if(lockInSkill.)
     }
 
     void ScrollTarget(int type)

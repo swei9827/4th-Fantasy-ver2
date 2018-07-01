@@ -39,8 +39,7 @@ public class PlayerLockInSkill : PlayerVariableManager
         {
             if (Input.GetButton(playerButton))
             {
-                holdTimer += Time.deltaTime;
-                //chooseActionBar.transform.localScale = new Vector3(chooseActionBar.transform.localScale.x, Mathf.Clamp(chooseActionBarInPercentage, 0, 1), chooseActionBar.transform.localScale.z);
+                holdTimer += Time.deltaTime;                
                 if (holdTimer >= timeNeeded)
                 {
                     lockInSkill = skillList[2];
