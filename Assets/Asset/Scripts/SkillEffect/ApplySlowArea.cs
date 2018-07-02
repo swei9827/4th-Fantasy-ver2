@@ -6,7 +6,7 @@ public class ApplySlowArea : SkillEffect
 {
     private void Awake()
     {
-        effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
+        effectType = SKILL_EFFECT_TYPE.DEBUFF;
         numOfTarget = 0;
         effectDescription = "Slow Down";
     }
@@ -27,7 +27,7 @@ public class ApplySlowArea : SkillEffect
     {
         for (int i = 0; i < enemyList.Count; i++)
         {
-            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new Slow());
+            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(Instantiate(status[0]));
         }
     }
 }

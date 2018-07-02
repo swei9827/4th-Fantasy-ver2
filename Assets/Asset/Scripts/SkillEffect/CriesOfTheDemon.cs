@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class CriesOfTheDemon : SkillEffect
 {
+    public GameObject recoverAfterDamage;
+    public List<GameObject> selfstatus;
     private void Awake()
     {
+        Assign();
         effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
         numOfTarget = 0;
         effectDescription = "Beware the cries of my beloved demons!!!!";
@@ -37,44 +40,38 @@ public class CriesOfTheDemon : SkillEffect
         }
         for (int i=0;i<enemyList.Count;i++)
         {
-            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new StrengthDown());
-            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new MagDown());
-            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new DefenseDown());
-            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new SpiritDown());
-            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new AccuracyDown());
-            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new EvaDown());
-            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new CritDown());
-            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new Blind());
-            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new Confuse());
-            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new Cursed());
-            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new Bleed());
-            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new Flinched());
-            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new Berserk());
-            enemyList[i].GetComponent<EnemyVariableManager>().realTimeStatusList.Add(new Poison());
+            for (int k = 0; k < status.Count; k++)
+            {
+                if (status[k].GetComponent<StatusDetail>() is ActionCounterStatusEffect)
+                {
+                    enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(Instantiate(status[k]));
+                }
+                else if (status[k].GetComponent<StatusDetail>() is RealTimeStatusEffect)
+                {
+                    enemyList[i].GetComponent<EnemyVariableManager>().realTimeStatusList.Add(Instantiate(status[k]));
+                }
+            }
             enemyList[i].GetComponent<EnemyStats>().health -= (int)((user.GetComponent<PlayerStats>().strength * 0.2f + user.GetComponent<PlayerStats>().magic * 4f - enemyList[i].GetComponent<EnemyStats>().defense*1.5f - enemyList[i].GetComponent<EnemyStats>().magic*2f) * multiplier);
             collectedDamage += (int)((user.GetComponent<PlayerStats>().strength * 0.2f + user.GetComponent<PlayerStats>().magic * 4f - enemyList[i].GetComponent<EnemyStats>().defense * 1.5f - enemyList[i].GetComponent<EnemyStats>().magic * 2f) * multiplier);
         }
         for(int j=0;j<playerList.Count;j++)
         {
-            if (playerList[j] == this)
+            if (playerList[j] == user)
             {
                 continue;
             }
-            playerList[j].GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new StrengthDown());
-            playerList[j].GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new MagDown());
-            playerList[j].GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new DefenseDown());
-            playerList[j].GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new SpiritDown());
-            playerList[j].GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new AccuracyDown());
-            playerList[j].GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new EvaDown());
-            playerList[j].GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new CritDown());
-            playerList[j].GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new Blind());
-            playerList[j].GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new Confuse());
-            playerList[j].GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new Cursed());
-            playerList[j].GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new Bleed());
-            playerList[j].GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new Flinched());
-            playerList[j].GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new Berserk());
-            playerList[j].GetComponent<PlayerStatusList>().realTimeStatusList.Add(new Poison());
-            playerList[j].GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new RecoverAfterDamage());
+            for (int y = 0; y < status.Count; y++)
+            {
+                if (status[y].GetComponent<StatusDetail>() is ActionCounterStatusEffect)
+                {
+                    playerList[j].GetComponent<PlayerVariableManager>().actionCounterStatusList.Add(Instantiate(status[y]));
+                }
+                else if (status[y].GetComponent<StatusDetail>() is RealTimeStatusEffect)
+                {
+                    playerList[j].GetComponent<PlayerVariableManager>().realTimeStatusList.Add(Instantiate(status[y]));
+                }
+            }
+            playerList[j].GetComponent<PlayerVariableManager>().actionCounterStatusList.Add(Instantiate(recoverAfterDamage));
             playerList[j].GetComponent<PlayerStats>().health -= (int)((user.GetComponent<PlayerStats>().strength * 0.2f + user.GetComponent<PlayerStats>().magic * 4f - playerList[j].GetComponent<PlayerStats>().defense * 1.5f - playerList[j].GetComponent<PlayerStats>().magic * 2f) * multiplier);
             collectedDamage += (int)((user.GetComponent<PlayerStats>().strength * 0.2f + user.GetComponent<PlayerStats>().magic * 4f - playerList[j].GetComponent<PlayerStats>().defense * 1.5f - playerList[j].GetComponent<PlayerStats>().magic * 2f) * multiplier);
             if (playerList[j].GetComponent<PlayerStats>().health<=0)
@@ -82,13 +79,17 @@ public class CriesOfTheDemon : SkillEffect
                 playerList[j].GetComponent<PlayerStats>().health = 1;
             }
         }
-        user.GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new StrengthUp());
-        user.GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new MagUp());
-        user.GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new DefenseUp());
-        user.GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new SpiritUp());
-        user.GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new Immunity());
-        user.GetComponent<PlayerStatusList>().realTimeStatusList.Add(new Regen());
-        user.GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new Haste());
+        for(int x = 0;x<selfstatus.Count;x++)
+        {
+            if (status[x].GetComponent<StatusDetail>() is ActionCounterStatusEffect)
+            {
+                user.GetComponent<PlayerVariableManager>().actionCounterStatusList.Add(Instantiate(selfstatus[x]));
+            }
+            else if (status[x].GetComponent<StatusDetail>() is RealTimeStatusEffect)
+            {
+                user.GetComponent<PlayerVariableManager>().realTimeStatusList.Add(Instantiate(selfstatus[x]));
+            }
+        }
         user.GetComponent<PlayerStats>().health += (int)(user.GetComponent<PlayerStats>().magic + collectedDamage * 0.5f);
     }
 }

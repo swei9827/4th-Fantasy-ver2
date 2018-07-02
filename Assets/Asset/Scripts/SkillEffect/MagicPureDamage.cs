@@ -5,6 +5,7 @@ using UnityEngine;
 public class MagicPureDamage : SkillEffect
 {
 
+
     private void Awake()
     {
         Assign();

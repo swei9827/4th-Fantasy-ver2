@@ -6,7 +6,7 @@ public class ApplyMagDownArea : SkillEffect
 {
     private void Awake()
     {
-        effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
+        effectType = SKILL_EFFECT_TYPE.DEBUFF;
         numOfTarget = 0;
         effectDescription = "Magic Down";
     }
@@ -27,7 +27,7 @@ public class ApplyMagDownArea : SkillEffect
     {
         for (int i = 0; i < enemyList.Count; i++)
         {
-            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new MagDown());
+            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(Instantiate(status[0]));
         }
     }
 }

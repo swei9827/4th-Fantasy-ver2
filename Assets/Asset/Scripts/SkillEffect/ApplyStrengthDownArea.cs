@@ -6,7 +6,7 @@ public class ApplyStrengthDownArea : SkillEffect
 {
     private void Awake()
     {
-        effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
+        effectType = SKILL_EFFECT_TYPE.DEBUFF;
         numOfTarget = 0;
         effectDescription = "Strength Down";
     }
@@ -27,7 +27,7 @@ public class ApplyStrengthDownArea : SkillEffect
     {
         for (int i = 0; i < enemyList.Count; i++)
         {
-            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new StrengthDown());
+            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(Instantiate(status[0]));
         }
     }
 }

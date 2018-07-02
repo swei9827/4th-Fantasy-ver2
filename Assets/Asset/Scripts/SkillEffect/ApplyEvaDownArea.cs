@@ -6,7 +6,7 @@ public class ApplyEvaDownArea : SkillEffect
 {
     private void Awake()
     {
-        effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
+        effectType = SKILL_EFFECT_TYPE.DEBUFF;
         numOfTarget = 0;
         effectDescription = "Evasion Down";
     }
@@ -27,7 +27,7 @@ public class ApplyEvaDownArea : SkillEffect
     {
         for (int i = 0; i < enemyList.Count; i++)
         {
-            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new EvaDown());
+            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(Instantiate(status[0]));
         }
     }
 }

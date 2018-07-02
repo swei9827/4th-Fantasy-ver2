@@ -6,7 +6,7 @@ public class ApplyBlindArea : SkillEffect
 {
     private void Awake()
     {
-        effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
+        effectType = SKILL_EFFECT_TYPE.DEBUFF;
         numOfTarget = 0;
         effectDescription = "Blinding Aura";
     }
@@ -27,7 +27,7 @@ public class ApplyBlindArea : SkillEffect
     {
         for (int i = 0; i < enemyList.Count; i++)
         {
-            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new Blind());
+            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(Instantiate(status[0]));
         }
     }
 }

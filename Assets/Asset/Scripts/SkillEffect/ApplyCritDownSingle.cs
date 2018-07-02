@@ -6,7 +6,7 @@ public class ApplyCritDownSingle : SkillEffect
 {
     private void Awake()
     {
-        effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
+        effectType = SKILL_EFFECT_TYPE.DEBUFF;
         numOfTarget = 1;
         effectDescription = "Critical Down";
     }
@@ -25,7 +25,7 @@ public class ApplyCritDownSingle : SkillEffect
 
     public override void Execute(GameObject targetedEnemy)
     {
-        targetedEnemy.GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(new CritDown());
+        targetedEnemy.GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(Instantiate(status[0]));
     }
 }
 

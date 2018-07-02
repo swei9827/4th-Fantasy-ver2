@@ -6,16 +6,16 @@ public class ApplyAccuracyDownArea : SkillEffect
 {
     private void Awake()
     {
+        Assign();
         effectType = SKILL_EFFECT_TYPE.DEBUFF;
         numOfTarget = 0;
-        effectDescription = "Decrease accuracy of all enemies";
-        SetReference();
+        effectDescription = "Accuracy Down";
     }
 
     // Use this for initialization
     void Start()
     {
-        Execute();
+
     }
 
     // Update is called once per frame
@@ -24,12 +24,11 @@ public class ApplyAccuracyDownArea : SkillEffect
 
     }
 
-    public override void Execute()
+    public override void Execute(GameObject targetedEnemy)
     {
         for (int i = 0; i < enemyList.Count; i++)
         {
-            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(gameObject.AddComponent<AccuracyDown>());
+            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(Instantiate(status[0]));
         }
-        Debug.Log("HEY");
     }
 }

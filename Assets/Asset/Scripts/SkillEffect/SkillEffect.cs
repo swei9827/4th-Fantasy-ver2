@@ -7,6 +7,7 @@ public class SkillEffect : MonoBehaviour {
 
     public List<GameObject> playerList;
     public List<GameObject> enemyList;
+    public List<GameObject> status;
     public GameObject user;
     public string effectDescription;
     public SKILL_EFFECT_TYPE effectType;
@@ -20,15 +21,10 @@ public class SkillEffect : MonoBehaviour {
         HEAL
     }
 
-    private void Awake()
-    {
-        
-    }
-
     // Use this for initialization
-    void Start () {        
-
-    }
+    void Start () {
+		
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -39,15 +35,11 @@ public class SkillEffect : MonoBehaviour {
     {
 
     }
-    public virtual void Execute()
-    {
 
-    }
-
-    public void SetReference()
+    protected void Assign()
     {
         playerList = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().playerList;
         enemyList = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().enemyList;
-        //user = this.transform.parent.parent.parent.gameObject;
+        user = transform.parent.parent.parent.gameObject;
     }
 }

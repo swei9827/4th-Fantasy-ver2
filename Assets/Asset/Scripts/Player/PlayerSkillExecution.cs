@@ -122,7 +122,7 @@ using UnityEngine.UI;
 public class PlayerSkillExecution : PlayerVariableManager
 {
 
-
+    public actionTimeBar actionTimerBarScript;
 
     private void Awake()
     {
