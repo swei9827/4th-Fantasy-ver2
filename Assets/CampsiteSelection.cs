@@ -11,11 +11,7 @@ public class CampsiteSelection : MonoBehaviour
     public Button p1UpgradeSkill;
     public Button p2StatusCheck;
     public Button p2UpgradeSkill;
-    public GameObject p1statusUI;
-    public GameObject p1UpgradeUI;
-    public GameObject p2statusUI;
-    public GameObject p2UpgradeUI;
-    public float timeNeeded;
+    public float timeNeeded = 1;
     public float p1Hold,p2Hold;
 
     void OnEnable()
@@ -42,7 +38,7 @@ public class CampsiteSelection : MonoBehaviour
 
         if (Input.GetKeyUp("l"))
         {
-            if (p1StatusCheck.GetComponent<Image>().color == Color.blue)
+            if (p2StatusCheck.GetComponent<Image>().color == Color.blue)
             {
                 p2StatusCheck.GetComponent<Image>().color = Color.white;
                 p2UpgradeSkill.GetComponent<Image>().color = Color.blue;
@@ -54,40 +50,44 @@ public class CampsiteSelection : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown("a"))
+        if(Input.GetKey("a"))
         {
             p1Hold += Time.deltaTime;
             if (p1Hold > timeNeeded)
             {
                 if (p1StatusCheck.GetComponent<Image>().color == Color.red)
                 {
-                    p1statusUI.SetActive(true);
+                    this.GetComponent<ShowUI>().p1State = ShowUI.CAMPSITE_STATE.STATUS_CHECK;
                 }
                 else
                 {
-                    p1UpgradeUI.SetActive(true);
+                    this.GetComponent<ShowUI>().p1State = ShowUI.CAMPSITE_STATE.SKILL_UPGRADE;
                 }
             }
         }
+        else
+        {
+            p1Hold = 0;
+        }
 
-        if (Input.GetKeyDown("l"))
+        if (Input.GetKey("l"))
         {
             p2Hold += Time.deltaTime;
             if (p2Hold > timeNeeded)
             {
-                if (p2StatusCheck.GetComponent<Image>().color == Color.red)
+                if (p2StatusCheck.GetComponent<Image>().color == Color.blue)
                 {
-                    p2statusUI.SetActive(true);
+                    this.GetComponent<ShowUI>().p2State = ShowUI.CAMPSITE_STATE.STATUS_CHECK;
                 }
                 else
                 {
-                    p2UpgradeUI.SetActive(true);
+                    this.GetComponent<ShowUI>().p2State = ShowUI.CAMPSITE_STATE.SKILL_UPGRADE;
                 }
             }
         }
-
-        p1Hold = 0;
-        p2Hold = 0;
-
+        else
+        {
+            p2Hold = 0;
+        }
     }
 }
