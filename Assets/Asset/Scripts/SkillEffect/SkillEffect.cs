@@ -17,6 +17,7 @@ public class SkillEffect : MonoBehaviour {
     {
         OFFENSIVE = 0,
         SUPPORTIVE,
+        DEBUFF,
         HEAL
     }
 

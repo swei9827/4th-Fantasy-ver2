@@ -7,7 +7,7 @@ public class ApplyAccuracyDownArea : SkillEffect
     private void Awake()
     {
         Assign();
-        effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
+        effectType = SKILL_EFFECT_TYPE.DEBUFF;
         numOfTarget = 0;
         effectDescription = "Accuracy Down";
     }
@@ -28,7 +28,7 @@ public class ApplyAccuracyDownArea : SkillEffect
     {
         for (int i = 0; i < enemyList.Count; i++)
         {
-            enemyList[i].GetComponent<EnemyStatusList>().actionStatusList.Add(Instantiate(status[0]));
+            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(Instantiate(status[0]));
         }
     }
 }

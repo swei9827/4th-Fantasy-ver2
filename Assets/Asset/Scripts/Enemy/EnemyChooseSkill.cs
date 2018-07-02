@@ -56,15 +56,15 @@ public class EnemyChooseSkill : MonoBehaviour {
                     skillRandomizer();
                 }
             }
-            for (int i = 0; i < GetComponent<EnemyStatusList>().actionStatusList.Count; i++)
+            for (int i = 0; i < GetComponent<EnemyVariableManager>().actionCounterStatusList.Count; i++)
             {
-                if (!GetComponent<EnemyStatusList>().actionStatusList[i].GetComponent<StatusDetail>().isActive)
+                if (!GetComponent<EnemyVariableManager>().actionCounterStatusList[i].GetComponent<StatusDetail>().isActive)
                 {
-                    GetComponent<EnemyStatusList>().actionStatusList[i].GetComponent<StatusDetail>().RemoveStatus();
-                    GetComponent<EnemyStatusList>().actionStatusList.Remove(GetComponent<EnemyStatusList>().actionStatusList[i]);
+                    GetComponent<EnemyVariableManager>().actionCounterStatusList[i].GetComponent<StatusDetail>().RemoveStatus();
+                    GetComponent<EnemyVariableManager>().actionCounterStatusList.Remove(GetComponent <EnemyVariableManager>().actionCounterStatusList[i]);
                 }
 
-                GetComponent<EnemyStatusList>().actionStatusList[i].GetComponent<StatusDetail>().DoEffect();
+                GetComponent<EnemyVariableManager>().actionCounterStatusList[i].GetComponent<StatusDetail>().DoEffect();
             }
         }
         

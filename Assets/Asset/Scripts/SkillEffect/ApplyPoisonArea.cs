@@ -6,7 +6,7 @@ public class ApplyPoisonArea : SkillEffect
 {
     private void Awake()
     {
-        effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
+        effectType = SKILL_EFFECT_TYPE.DEBUFF;
         numOfTarget = 0;
         effectDescription = "Burn Enemies";
     }
@@ -27,7 +27,7 @@ public class ApplyPoisonArea : SkillEffect
     {
         for (int i = 0; i < enemyList.Count; i++)
         {
-            enemyList[i].GetComponent<EnemyStatusList>().secondsStatusList.Add(Instantiate(status[0]));
+            enemyList[i].GetComponent<EnemyVariableManager>().realTimeStatusList.Add(Instantiate(status[0]));
         }
     }
 }

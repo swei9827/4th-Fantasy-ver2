@@ -6,7 +6,7 @@ public class ApplyCritUpArea : SkillEffect
 {
     private void Awake()
     {
-        effectType = SKILL_EFFECT_TYPE.SUPPORTIVE;
+        effectType = SKILL_EFFECT_TYPE.DEBUFF;
         numOfTarget = 0;
         effectDescription = "Critical Increase";
     }
@@ -27,7 +27,7 @@ public class ApplyCritUpArea : SkillEffect
     {
         for (int i = 0; i < playerList.Count; i++)
         {
-            playerList[i].GetComponent<PlayerStatusList>().actionStatusList.Add(Instantiate(status[0]));
+            playerList[i].GetComponent<PlayerVariableManager>().actionCounterStatusList.Add(Instantiate(status[0]));
         }
     }
 }

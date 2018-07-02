@@ -29,11 +29,11 @@ public class ApplyTimePrietessSelfBuff : SkillEffect
         {
             if(status[i].GetComponent<StatusDetail>() is ActionCounterStatusEffect)
             {
-                user.GetComponent<PlayerStatusList>().actionStatusList.Add(Instantiate(status[i]));
+                user.GetComponent<PlayerVariableManager>().actionCounterStatusList.Add(Instantiate(status[i]));
             }
             else if(status[i].GetComponent<StatusDetail>() is DamageCounterStatusEffects)
             {
-                user.GetComponent<PlayerStatusList>().damageCountStatusList.Add(status[i]);
+                user.GetComponent<PlayerVariableManager>().damageCounterStatusList.Add(status[i]);
             }        
         }
         

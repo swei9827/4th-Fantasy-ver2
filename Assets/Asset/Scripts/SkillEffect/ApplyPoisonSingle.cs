@@ -6,7 +6,7 @@ public class ApplyPoisonSingle : SkillEffect
 {
     private void Awake()
     {
-        effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
+        effectType = SKILL_EFFECT_TYPE.DEBUFF;
         numOfTarget = 1;
         effectDescription = "Poison Attack";
     }
@@ -25,6 +25,6 @@ public class ApplyPoisonSingle : SkillEffect
 
     public override void Execute(GameObject targetedEnemy)
     {
-        targetedEnemy.GetComponent<EnemyStatusList>().secondsStatusList.Add(Instantiate(status[0]));
+        targetedEnemy.GetComponent<EnemyVariableManager>().realTimeStatusList.Add(Instantiate(status[0]));
     }
 }

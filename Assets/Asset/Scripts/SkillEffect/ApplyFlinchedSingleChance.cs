@@ -27,7 +27,7 @@ public class ApplyFlinchedSingleChance : SkillEffect
     {
         if(Random.Range(1,10)<=5)
         {
-            targetedEnemy.GetComponent<EnemyStatusList>().actionStatusList.Add(Instantiate(status[0]));
+            targetedEnemy.GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(Instantiate(status[0]));
         }
     }
 }

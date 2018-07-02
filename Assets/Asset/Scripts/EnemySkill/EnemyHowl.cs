@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ApplyMagDownArea : SkillEffect
-{
+public class EnemyHowl : SkillEffect {
+
+    public GameObject wolf;
     private void Awake()
     {
-        effectType = SKILL_EFFECT_TYPE.DEBUFF;
+        effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
         numOfTarget = 0;
-        effectDescription = "Magic Down";
+        effectDescription = "Summon a wolf to the battlefield(max of 3 enemies)";
     }
 
     // Use this for initialization
@@ -25,9 +26,10 @@ public class ApplyMagDownArea : SkillEffect
 
     public override void Execute(GameObject targetedEnemy)
     {
-        for (int i = 0; i < enemyList.Count; i++)
+        /*if(user.GetComponent<EnemyVariableManager>().SceneManager.enemyList.Count <3)
         {
-            enemyList[i].GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(Instantiate(status[0]));
-        }
+            for(int i=0;i<)
+        }*/
+
     }
 }

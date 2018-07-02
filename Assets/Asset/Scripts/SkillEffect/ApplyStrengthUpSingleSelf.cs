@@ -25,7 +25,7 @@ public class ApplyStrengthUpSingleSelf : SkillEffect
 
     public override void Execute(GameObject targetedEnemy)
     {
-        user.GetComponent<PlayerStatusList>().actionStatusList.Add(Instantiate(status[0]));
+        user.GetComponent<PlayerVariableManager>().actionCounterStatusList.Add(Instantiate(status[0]));
     }
 }
 

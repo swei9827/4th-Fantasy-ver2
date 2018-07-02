@@ -6,7 +6,7 @@ public class ApplyMagDownSingle : SkillEffect
 {
     private void Awake()
     {
-        effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
+        effectType = SKILL_EFFECT_TYPE.DEBUFF;
         numOfTarget = 1;
         effectDescription = "Defense Down ";
     }
@@ -25,7 +25,7 @@ public class ApplyMagDownSingle : SkillEffect
 
     public override void Execute(GameObject targetedEnemy)
     {
-        targetedEnemy.GetComponent<EnemyStatusList>().actionStatusList.Add(Instantiate(status[0]));
+        targetedEnemy.GetComponent<EnemyVariableManager>().actionCounterStatusList.Add(Instantiate(status[0]));
     }
 }
 

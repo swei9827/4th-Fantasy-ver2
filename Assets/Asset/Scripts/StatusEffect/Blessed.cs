@@ -40,24 +40,24 @@ public class Blessed : ActionCounterStatusEffect
                 user.GetComponent<PlayerStats>().spirit += (int)(user.GetComponent<PlayerStats>().baseSpirit * 0.5f);
                 user.GetComponent<PlayerStats>().evasion += 40;
                 user.GetComponent<PlayerStats>().criticalChance = 75;
-                for (int i = 0; i < GetComponent<PlayerStatusList>().actionStatusList.Count; i++)
+                for (int i = 0; i < GetComponent<PlayerVariableManager>().actionCounterStatusList.Count; i++)
                 {
-                    if (GetComponent<PlayerStatusList>().actionStatusList[i].GetComponent<StatusDetail>().type == "Bad")
+                    if (GetComponent<PlayerVariableManager>().actionCounterStatusList[i].GetComponent<StatusDetail>().type == "Bad")
                     {
-                        GetComponent<PlayerStatusList>().actionStatusList[i].GetComponent<StatusDetail>().RemoveStatus();
-                        GetComponent<PlayerStatusList>().actionStatusList.Remove(GetComponent<PlayerStatusList>().actionStatusList[i]);
+                        GetComponent<PlayerVariableManager>().actionCounterStatusList[i].GetComponent<StatusDetail>().RemoveStatus();
+                        GetComponent<PlayerVariableManager>().actionCounterStatusList.Remove(GetComponent<PlayerVariableManager>().actionCounterStatusList[i]);
                     }
                 }
-                for (int j = 0; j < GetComponent<PlayerStatusList>().secondsStatusList.Count; j++)
+                for (int j = 0; j < GetComponent<PlayerVariableManager>().realTimeStatusList.Count; j++)
                 {
-                    if (GetComponent<PlayerStatusList>().secondsStatusList[j].GetComponent<StatusDetail>().type == "Bad")
+                    if (GetComponent<PlayerVariableManager>().realTimeStatusList[j].GetComponent<StatusDetail>().type == "Bad")
                     {
-                        GetComponent<PlayerStatusList>().secondsStatusList[j].GetComponent<StatusDetail>().RemoveStatus();
-                        GetComponent<PlayerStatusList>().secondsStatusList.Remove(GetComponent<PlayerStatusList>().secondsStatusList[j]);
+                        GetComponent<PlayerVariableManager>().realTimeStatusList[j].GetComponent<StatusDetail>().RemoveStatus();
+                        GetComponent<PlayerVariableManager>().realTimeStatusList.Remove(GetComponent<PlayerVariableManager>().actionCounterStatusList[j]);
                     }
-                    if (GetComponent<PlayerStatusList>().actionStatusList[j].GetComponent<StatusDetail>() is CritUp)
+                    if (GetComponent<PlayerVariableManager>().actionCounterStatusList[j].GetComponent<StatusDetail>() is CritUp)
                     {
-                        GetComponent<PlayerStatusList>().actionStatusList[j].GetComponent<StatusDetail>().effect = false;
+                        GetComponent<PlayerVariableManager>().actionCounterStatusList[j].GetComponent<StatusDetail>().effect = false;
                     }
                 }
                 effect = true;
@@ -71,24 +71,24 @@ public class Blessed : ActionCounterStatusEffect
                 user.GetComponent<EnemyStats>().spirit += (int)(user.GetComponent<EnemyStats>().baseSpirit * 0.5f);
                 user.GetComponent<EnemyStats>().evasion += 40;
                 user.GetComponent<EnemyStats>().criticalChance = 75;
-                for (int i = 0; i < GetComponent<EnemyStatusList>().actionStatusList.Count; i++)
+                for (int i = 0; i < GetComponent<EnemyVariableManager>().actionCounterStatusList.Count; i++)
                 {
-                    if (GetComponent<EnemyStatusList>().actionStatusList[i].GetComponent<StatusDetail>().type == "Bad")
+                    if (GetComponent<EnemyVariableManager>().actionCounterStatusList[i].GetComponent<StatusDetail>().type == "Bad")
                     {
-                        GetComponent<EnemyStatusList>().actionStatusList[i].GetComponent<StatusDetail>().RemoveStatus();
-                        GetComponent<EnemyStatusList>().actionStatusList.Remove(GetComponent<EnemyStatusList>().actionStatusList[i]);
+                        GetComponent<EnemyVariableManager>().actionCounterStatusList[i].GetComponent<StatusDetail>().RemoveStatus();
+                        GetComponent<EnemyVariableManager>().actionCounterStatusList.Remove(GetComponent<EnemyVariableManager>().actionCounterStatusList[i]);
                     }
                 }
-                for (int j = 0; j < GetComponent<EnemyStatusList>().secondsStatusList.Count; j++)
+                for (int j = 0; j < GetComponent<EnemyVariableManager>().realTimeStatusList.Count; j++)
                 {
-                    if (GetComponent<EnemyStatusList>().secondsStatusList[j].GetComponent<StatusDetail>().type == "Bad")
+                    if (GetComponent<EnemyVariableManager>().realTimeStatusList[j].GetComponent<StatusDetail>().type == "Bad")
                     {
-                        GetComponent<EnemyStatusList>().secondsStatusList[j].GetComponent<StatusDetail>().RemoveStatus();
-                        GetComponent<EnemyStatusList>().secondsStatusList.Remove(GetComponent<EnemyStatusList>().secondsStatusList[j]);
+                        GetComponent<EnemyVariableManager>().realTimeStatusList[j].GetComponent<StatusDetail>().RemoveStatus();
+                        GetComponent<EnemyVariableManager>().realTimeStatusList.Remove(GetComponent<EnemyVariableManager>().realTimeStatusList[j]);
                     }
-                    if (GetComponent<EnemyStatusList>().actionStatusList[j].GetComponent<StatusDetail>() is CritUp)
+                    if (GetComponent<EnemyVariableManager>().actionCounterStatusList[j].GetComponent<StatusDetail>() is CritUp)
                     {
-                        GetComponent<EnemyStatusList>().actionStatusList[j].GetComponent<StatusDetail>().effect = false;
+                        GetComponent<EnemyVariableManager>().actionCounterStatusList[j].GetComponent<StatusDetail>().effect = false;
                     }
                 }
                 effect = true;
@@ -107,11 +107,11 @@ public class Blessed : ActionCounterStatusEffect
             user.GetComponent<PlayerStats>().spirit -= (int)(user.GetComponent<PlayerStats>().baseSpirit * 0.5f);
             user.GetComponent<PlayerStats>().evasion -= 40;
             user.GetComponent<PlayerStats>().criticalChance = user.GetComponent<PlayerStats>().baseCriticalChance;
-            for (int j = 0; j < GetComponent<PlayerStatusList>().actionStatusList.Count; j++)
+            for (int j = 0; j < GetComponent<PlayerVariableManager>().actionCounterStatusList.Count; j++)
             {
-                if (GetComponent<PlayerStatusList>().actionStatusList[j].GetComponent<StatusDetail>() is CritUp)
+                if (GetComponent<PlayerVariableManager>().actionCounterStatusList[j].GetComponent<StatusDetail>() is CritUp)
                 {
-                    GetComponent<PlayerStatusList>().actionStatusList[j].GetComponent<StatusDetail>().effect = false;
+                    GetComponent<PlayerVariableManager>().actionCounterStatusList[j].GetComponent<StatusDetail>().effect = false;
                 }
             }
             effect = false;
@@ -125,11 +125,11 @@ public class Blessed : ActionCounterStatusEffect
             user.GetComponent<EnemyStats>().spirit -= (int)(user.GetComponent<EnemyStats>().baseSpirit * 0.5f);
             user.GetComponent<EnemyStats>().evasion -= 40;
             user.GetComponent<EnemyStats>().criticalChance = user.GetComponent<EnemyStats>().baseCriticalChance;
-            for (int j = 0; j < GetComponent<EnemyStatusList>().actionStatusList.Count; j++)
+            for (int j = 0; j < GetComponent<EnemyVariableManager>().actionCounterStatusList.Count; j++)
             {
-                if (GetComponent<EnemyStatusList>().actionStatusList[j].GetComponent<StatusDetail>() is CritUp)
+                if (GetComponent<EnemyVariableManager>().actionCounterStatusList[j].GetComponent<StatusDetail>() is CritUp)
                 {
-                    GetComponent<EnemyStatusList>().actionStatusList[j].GetComponent<StatusDetail>().effect = false;
+                    GetComponent<EnemyVariableManager>().actionCounterStatusList[j].GetComponent<StatusDetail>().effect = false;
                 }
             }
             effect = false;
