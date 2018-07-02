@@ -6,7 +6,7 @@ public class PlayerSkillChooseTarget : PlayerVariableManager
 {
     private void Awake()
     {
-        //! Filling up reference
+        /*//! Filling up reference
         enemySpawnScript = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<Enemy_Spawn>();
         playerSpawnScript = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<Player_Spawn>();
         sceneManagerScript = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>();
@@ -22,13 +22,14 @@ public class PlayerSkillChooseTarget : PlayerVariableManager
             playerButton = "P2_Button";
         }
 
-        isTargetLockedIn = false;
+        isTargetLockedIn = false;*/
+
     }
 
     // Use this for initialization
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -75,10 +76,25 @@ public class PlayerSkillChooseTarget : PlayerVariableManager
             }
 
         }*/
-        if(lockInSkill.)
+
+        //! Need to if its AOE
+        if(!this.GetComponent<PlayerVariableManager>().isTargetLockedIn)
+        {
+            for (int i = 0; i < this.GetComponent<PlayerVariableManager>().enemySpawnScript.enemySpawnPoints.Count; i++)
+            {
+                if (this.GetComponent<PlayerVariableManager>().enemySpawnScript.enemySpawnPoints[i].transform.childCount != 0)
+                {
+                    this.GetComponent<PlayerVariableManager>().targetedEnemy = this.GetComponent<PlayerVariableManager>().enemySpawnScript.enemySpawnPoints[i].GetChild(0).gameObject;
+                    Debug.Log(i);
+                    break;
+                }
+            }
+            this.GetComponent<PlayerVariableManager>().isTargetLockedIn = true;
+        }
+        
     }
 
-    void ScrollTarget(int type)
+    /*void ScrollTarget(int type)
     {
         if (Input.GetButtonUp(playerButton))
         {
@@ -126,5 +142,5 @@ public class PlayerSkillChooseTarget : PlayerVariableManager
         {
             holdTimer = 0;
         }
-    }
+    }*/
 }

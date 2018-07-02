@@ -59,6 +59,7 @@ MonoBehaviour:
   user: {fileID: 0}
   skillExecutionList:
   - {fileID: 1205213194173458, guid: 5f7fa274f0620e94bbf79357eeac43c2, type: 2}
+  - {fileID: 1205213194173458, guid: 5f7fa274f0620e94bbf79357eeac43c2, type: 2}
   skillExecutionHolder: []
 --- !u!212 &212268578526362134
 SpriteRenderer:

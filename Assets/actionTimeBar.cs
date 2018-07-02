@@ -64,13 +64,7 @@ public class actionTimeBar : MonoBehaviour
         setSelection(calcSelection);
         
     }
-    /*public void Update()
-    {
-
-        repeatBar();
-    }*/
-
-        //! Counting down the ATB
+    //! Counting down the ATB
     void IncreaseBar()
     {
         timeTest += Time.deltaTime;
