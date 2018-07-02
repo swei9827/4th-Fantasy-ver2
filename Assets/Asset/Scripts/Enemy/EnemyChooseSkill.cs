@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyChooseSkill : MonoBehaviour {
@@ -58,6 +57,8 @@ public class EnemyChooseSkill : MonoBehaviour {
             }
             for (int i = 0; i < GetComponent<EnemyVariableManager>().actionCounterStatusList.Count; i++)
             {
+                GetComponent<EnemyVariableManager>().actionCounterStatusList[i].GetComponent<StatusDetail>().user = gameObject;
+                GetComponent<EnemyVariableManager>().actionCounterStatusList[i].GetComponent<StatusDetail>().userType = StatusDetail.UserType.ENEMY;
                 if (!GetComponent<EnemyVariableManager>().actionCounterStatusList[i].GetComponent<StatusDetail>().isActive)
                 {
                     GetComponent<EnemyVariableManager>().actionCounterStatusList[i].GetComponent<StatusDetail>().RemoveStatus();
