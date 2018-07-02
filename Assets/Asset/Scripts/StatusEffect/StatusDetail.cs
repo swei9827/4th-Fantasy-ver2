@@ -8,10 +8,16 @@ public class StatusDetail : MonoBehaviour {
     public bool effect = false;
     public GameObject user;
     public string type;
+    public enum UserType
+    {
+        PLAYER = 0,
+        ENEMY
+    }
+    public UserType userType;
 
     private void Awake()
     {
-        user = this.transform.parent.gameObject;
+
     }
 
     // Use this for initialization

@@ -6,7 +6,7 @@ public class ApplyRegenArea : SkillEffect
 {
     private void Awake()
     {
-        effectType = SKILL_EFFECT_TYPE.HEAL;
+        effectType = SKILL_EFFECT_TYPE.SUPPORTIVE;
         numOfTarget = 0;
         effectDescription = "Regeneration Power";
     }
@@ -27,7 +27,7 @@ public class ApplyRegenArea : SkillEffect
     {
         for (int i = 0; i < playerList.Count; i++)
         {
-            playerList[i].GetComponent<PlayerStatusList>().realTimeStatusList.Add(new Regen());
+            playerList[i].GetComponent<PlayerVariableManager>().realTimeStatusList.Add(Instantiate(status[0]));
         }
         GameObject.Find("SceneManager").GetComponent<NeutralVariable>().regenCasterMag = (int)(user.GetComponent<PlayerStats>().magic * 0.5f);
     }

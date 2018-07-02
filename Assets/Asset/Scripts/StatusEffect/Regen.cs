@@ -36,8 +36,18 @@ public class Regen : RealTimeStatusEffect
         }
         if (tick >= 2)
         {
-            float reg = user.GetComponent<PlayerStats>().health * 0.05f + GameObject.Find("SceneManager").GetComponent<NeutralVariable>().regenCasterMag;
-            user.GetComponent<PlayerStats>().health += (int)reg;
+            if (userType == UserType.PLAYER)
+            {
+                float reg = user.GetComponent<PlayerStats>().health * 0.05f + GameObject.Find("SceneManager").GetComponent<NeutralVariable>().regenCasterMag;
+                user.GetComponent<PlayerStats>().health += (int)reg;
+                tick = 0;
+            }
+            else if (userType == UserType.ENEMY)
+            {
+                float reg = user.GetComponent<EnemyStats>().health * 0.05f + GameObject.Find("SceneManager").GetComponent<NeutralVariable>().enemyRegenMag;
+                user.GetComponent<EnemyStats>().health += (int)reg;
+                tick = 0;
+            }
             tick = 0;
         }
        

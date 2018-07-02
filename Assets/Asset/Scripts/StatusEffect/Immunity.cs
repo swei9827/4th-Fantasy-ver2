@@ -27,24 +27,45 @@ public class Immunity : ActionCounterStatusEffect
         if (intDuration <= 0)
         {
             isActive = false;
-            RemoveStatus();
         }
         if (!effect)
         {
-            for (int i = 0; i < GetComponent<PlayerStatusList>().realTimeStatusList.Count; i++)
+            if (userType == UserType.PLAYER)
             {
-                if (GetComponent<PlayerStatusList>().realTimeStatusList[i].type == "Bad")
+                for (int i = 0; i < GetComponent<PlayerVariableManager>().actionCounterStatusList.Count; i++)
                 {
-                    GetComponent<PlayerStatusList>().realTimeStatusList[i].RemoveStatus();
-                    GetComponent<PlayerStatusList>().realTimeStatusList.Remove(GetComponent<PlayerStatusList>().realTimeStatusList[i]);
+                    if (GetComponent<PlayerVariableManager>().actionCounterStatusList[i].GetComponent<StatusDetail>().type == "Bad")
+                    {
+                        GetComponent<PlayerVariableManager>().actionCounterStatusList[i].GetComponent<StatusDetail>().RemoveStatus();
+                        GetComponent<PlayerVariableManager>().actionCounterStatusList.Remove(GetComponent<PlayerVariableManager>().actionCounterStatusList[i]);
+                    }
+                }
+                for (int j = 0; j < GetComponent<PlayerVariableManager>().realTimeStatusList.Count; j++)
+                {
+                    if (GetComponent<PlayerVariableManager>().realTimeStatusList[j].GetComponent<StatusDetail>().type == "Bad")
+                    {
+                        GetComponent<PlayerVariableManager>().realTimeStatusList[j].GetComponent<StatusDetail>().RemoveStatus();
+                        GetComponent<PlayerVariableManager>().realTimeStatusList.Remove(GetComponent<PlayerVariableManager>().realTimeStatusList[j]);
+                    }
                 }
             }
-            for (int j = 0; j < GetComponent<PlayerStatusList>().actionCounterStatusList.Count; j++)
+            else if (userType == UserType.ENEMY)
             {
-                if (GetComponent<PlayerStatusList>().actionCounterStatusList[j].type == "Bad" || GetComponent<PlayerStatusList>().actionCounterStatusList[j].type == "Neutral")
+                for (int i = 0; i < GetComponent<EnemyVariableManager>().actionCounterStatusList.Count; i++)
                 {
-                    GetComponent<PlayerStatusList>().actionCounterStatusList[j].RemoveStatus();
-                    GetComponent<PlayerStatusList>().actionCounterStatusList.Remove(GetComponent<PlayerStatusList>().actionCounterStatusList[j]);
+                    if (GetComponent<EnemyVariableManager>().actionCounterStatusList[i].GetComponent<StatusDetail>().type == "Bad")
+                    {
+                        GetComponent<EnemyVariableManager>().actionCounterStatusList[i].GetComponent<StatusDetail>().RemoveStatus();
+                        GetComponent<EnemyVariableManager>().actionCounterStatusList.Remove(GetComponent<EnemyVariableManager>().actionCounterStatusList[i]);
+                    }
+                }
+                for (int j = 0; j < GetComponent<EnemyVariableManager>().realTimeStatusList.Count; j++)
+                {
+                    if (GetComponent<EnemyVariableManager>().realTimeStatusList[j].GetComponent<StatusDetail>().type == "Bad")
+                    {
+                        GetComponent<EnemyVariableManager>().realTimeStatusList[j].GetComponent<StatusDetail>().RemoveStatus();
+                        GetComponent<EnemyVariableManager>().realTimeStatusList.Remove(GetComponent<EnemyVariableManager>().realTimeStatusList[j]);
+                    }
                 }
             }
             effect = true;

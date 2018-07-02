@@ -27,7 +27,7 @@ public class ApplyEvaUpArea : SkillEffect
     {
         for (int i = 0; i < playerList.Count; i++)
         {
-            playerList[i].GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new EvaUp());
+            playerList[i].GetComponent<PlayerVariableManager>().actionCounterStatusList.Add(Instantiate(status[0]));
         }
     }
 }

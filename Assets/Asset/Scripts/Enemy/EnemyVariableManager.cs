@@ -14,9 +14,9 @@ public class EnemyVariableManager : MonoBehaviour {
 
     //! Enemy Status List
     [Header("Enemy Status Effect List")]
-    public List<StatusDetail> actionCounterStatusList;
-    public List<StatusDetail> realTimeStatusList;
-    public List<StatusDetail> damageCounterStatusList;
+    public List<GameObject> actionCounterStatusList;
+    public List<GameObject> realTimeStatusList;
+    public List<GameObject> damageCounterStatusList;
 
     //! Enemy Stats
     [Header("Enemy Stats")]

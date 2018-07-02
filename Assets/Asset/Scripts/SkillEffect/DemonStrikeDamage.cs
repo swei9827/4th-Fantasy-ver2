@@ -8,6 +8,7 @@ public class DemonStrikeDamage : SkillEffect
 
     private void Awake()
     {
+        Assign();
         effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
         numOfTarget = 1;
         damage = (int)(user.GetComponent<PlayerStats>().strength*1.5f);

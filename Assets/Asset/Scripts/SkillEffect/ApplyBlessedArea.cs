@@ -27,7 +27,7 @@ public class ApplyBlessedArea : SkillEffect
     {
         for (int i = 0; i < playerList.Count; i++)
         {
-            playerList[i].GetComponent<PlayerStatusList>().actionCounterStatusList.Add(new Blessed());
+            playerList[i].GetComponent<PlayerVariableManager>().actionCounterStatusList.Add(Instantiate(status[0]));
         }
     }
 }

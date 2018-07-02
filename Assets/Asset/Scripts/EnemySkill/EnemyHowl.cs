@@ -24,11 +24,12 @@ public class EnemyHowl : SkillEffect {
 
     }
 
-    public override void Execute()
+    public override void Execute(GameObject targetedEnemy)
     {
         /*if(user.GetComponent<EnemyVariableManager>().SceneManager.enemyList.Count <3)
         {
             for(int i=0;i<)
         }*/
+
     }
 }

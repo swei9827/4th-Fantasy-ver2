@@ -6,6 +6,7 @@ public class AreaNormalAttack : SkillEffect
 {
     private void Awake()
     {
+        Assign();
         effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
         numOfTarget = 0;
         float calDmg = user.GetComponent<PlayerStats>().strength * 0.9f;
@@ -38,8 +39,9 @@ public class AreaNormalAttack : SkillEffect
         }
         for(int i=0;i<enemyList.Count;i++)
         {
-            enemyList[i].GetComponent<PlayerStats>().health -= (int)((damage - enemyList[i].GetComponent<PlayerStats>().defense * 0.8f)*multiplier);
+            enemyList[i].GetComponent<EnemyStats>().health -= (int)((damage - enemyList[i].GetComponent<EnemyStats>().defense * 0.8f)*multiplier);
         }
+        Debug.Log("AreaNormalAttack");
     }
 }
 

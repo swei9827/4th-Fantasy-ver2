@@ -8,6 +8,7 @@ public class PollenDamage : SkillEffect
 
     private void Awake()
     {
+        Assign();
         effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
         numOfTarget = 0;
         damage = (int)(user.GetComponent<PlayerStats>().magic * 0.5f);
@@ -39,7 +40,7 @@ public class PollenDamage : SkillEffect
         }
         for (int i = 0; i < enemyList.Count; i++)
         {
-            enemyList[i].GetComponent<PlayerStats>().health -= (int)(damage*multiplier);
+            enemyList[i].GetComponent<EnemyStats>().health -= (int)(damage*multiplier);
         }
     }
 }

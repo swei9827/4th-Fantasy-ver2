@@ -27,7 +27,7 @@ public class ApplyEvaUpOneDamageCounterArea : SkillEffect
     {
         for (int i = 0; i < playerList.Count; i++)
         {
-            playerList[i].GetComponent<PlayerStatusList>().damageCounterStatusList.Add(new EvaUpOneDamageCounter());
+            playerList[i].GetComponent<PlayerVariableManager>().damageCounterStatusList.Add(Instantiate(status[0]));
         }
     }
 }

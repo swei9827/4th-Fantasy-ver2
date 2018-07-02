@@ -28,8 +28,14 @@ public class Burn : ActionCounterStatusEffect
         {
             isActive = false;
         }
-        user.GetComponent<PlayerStats>().health -= burnDamage;
-        effect = true;
+        if (userType == UserType.PLAYER)
+        {
+            user.GetComponent<PlayerStats>().health -= burnDamage;
+        }
+        else if (userType == UserType.ENEMY)
+        {
+            user.GetComponent<EnemyStats>().health -= burnDamage;
+        }
         intDuration--;
         
     }

@@ -8,7 +8,7 @@ public class CritDown : ActionCounterStatusEffect
     {
         isActive = true;
         intDuration = 5;
-        type = "Good";
+        type = "Bad";
     }
     // Use this for initialization
     void Start()
@@ -27,11 +27,17 @@ public class CritDown : ActionCounterStatusEffect
         if (intDuration <= 0)
         {
             isActive = false;
-            RemoveStatus();
         }
         if (!effect)
         {
-            user.GetComponent<PlayerStats>().criticalChance -= 10;
+            if (userType == UserType.PLAYER)
+            {
+                user.GetComponent<PlayerStats>().criticalChance -= 10;
+            }
+            else if (userType == UserType.ENEMY)
+            {
+                user.GetComponent<EnemyStats>().criticalChance -= 10;
+            }
             effect = true;
         }
         intDuration--;
@@ -40,7 +46,14 @@ public class CritDown : ActionCounterStatusEffect
     }
     public override void RemoveStatus()
     {
-        user.GetComponent<PlayerStats>().criticalChance += 10;
+        if (userType == UserType.PLAYER)
+        {
+            user.GetComponent<PlayerStats>().criticalChance += 10;
+        }
+        else if (userType == UserType.ENEMY)
+        {
+            user.GetComponent<EnemyStats>().criticalChance += 10;
+        }
         effect = false;
     }
 }

@@ -8,6 +8,7 @@ public class MeteorDamage : SkillEffect
 
     private void Awake()
     {
+        Assign();
         effectType = SKILL_EFFECT_TYPE.OFFENSIVE;
         numOfTarget = 0;
         damage = (int)user.GetComponent<PlayerStats>().magic * 3;
@@ -39,7 +40,7 @@ public class MeteorDamage : SkillEffect
         }
         for (int i = 0; i < enemyList.Count; i++)
         {
-            enemyList[i].GetComponent<PlayerStats>().health -= (int)((damage - enemyList[i].GetComponent<PlayerStats>().spirit * 0.8f) * multiplier);
+            enemyList[i].GetComponent<EnemyStats>().health -= (int)((damage - enemyList[i].GetComponent<EnemyStats>().spirit * 0.8f) * multiplier);
         }
     }
 }

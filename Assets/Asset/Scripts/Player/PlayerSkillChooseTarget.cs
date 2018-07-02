@@ -67,6 +67,10 @@ public class PlayerSkillChooseTarget : PlayerVariableManager
                     ConfirmTarget(2);
                 }
             }
+            else
+            {
+                isTargetLockedIn = true;
+            }
             //isTargetLockedIn = true;
             if (isTargetLockedIn)
             {
