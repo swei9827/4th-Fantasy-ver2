@@ -75,7 +75,7 @@ public class PlayerSkillChooseTarget : PlayerVariableManager
             }
 
         }*/
-        if(lockInSkill.)
+        //if(lockInSkill.)
     }
 
     void ScrollTarget(int type)
