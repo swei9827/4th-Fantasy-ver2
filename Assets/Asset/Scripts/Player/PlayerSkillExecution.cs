@@ -119,27 +119,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerSkillExecution : MonoBehaviour
+public class PlayerSkillExecution : PlayerVariableManager
 {
 
-    public List<GameObject> skillList;
-    public actionTimeBar actionTimerBarScript;
-    public PlayerLockInSkill playerLockInSkillScript;
-    public PlayerSkillChooseTarget playerChooseTargetScript;
-    public BattleStateManager battleStateManager;
-    public GameObject testSkill;
-    public GameObject testEnemy;
+
 
     private void Awake()
     {
 
         actionTimerBarScript = this.GetComponent<actionTimeBar>();
-        playerLockInSkillScript = this.GetComponent<PlayerLockInSkill>();
-        playerChooseTargetScript = this.GetComponent<PlayerSkillChooseTarget>();
-        skillList = this.GetComponent<Character_Skill_List>().skillHolder;
-
-        //battleLog = GameObject.Find("Panel").GetComponent<PlayerBattleLog>();
-        battleStateManager = this.GetComponent<BattleStateManager>();
         //GameObject.Find("Canvas/Camera Label").GetComponent[UnityEngine.UI.Text]();
     }
 
@@ -178,20 +166,23 @@ public class PlayerSkillExecution : MonoBehaviour
         }*/
         if (actionTimerBarScript.selectionBar.fillAmount >= 1)
         {
-            if (playerLockInSkillScript.isSkillLockedIn && playerChooseTargetScript.isTargetLockedIn)
+            if (this.GetComponent<PlayerVariableManager>().isSkillLockedIn && this.GetComponent<PlayerVariableManager>().isTargetLockedIn)
             {
-                battleStateManager.gameState = BattleStateManager.GAMESTATE.EXECUTE_SKILL;
+                this.GetComponent<PlayerVariableManager>().battleStateManagerScript.gameState = BattleStateManager.GAMESTATE.EXECUTE_SKILL;
                 Debug.Log("HEY");
             }
         }
-        if (battleStateManager.gameState == BattleStateManager.GAMESTATE.EXECUTE_SKILL)
+        if (this.GetComponent<PlayerVariableManager>().battleStateManagerScript.gameState == BattleStateManager.GAMESTATE.EXECUTE_SKILL)
         {
-            for (int i = 0; i < playerLockInSkillScript.lockInSkill.GetComponent<SkillDetail>().skillExecutionHolder.Count; i++)
+            for (int i = 0; i < this.GetComponent<PlayerVariableManager>().lockInSkill.GetComponent<SkillDetail>().skillExecutionHolder.Count; i++)
             {
-                playerLockInSkillScript.lockInSkill.GetComponent<SkillDetail>().skillExecutionHolder[i].GetComponent<SkillEffect>().Execute(playerChooseTargetScript.targetedEnemy);
+                this.GetComponent<PlayerVariableManager>().lockInSkill.GetComponent<SkillDetail>().skillExecutionHolder[i].GetComponent<SkillEffect>().Execute(this.GetComponent<PlayerVariableManager>().targetedEnemy);
             }
-            playerLockInSkillScript.isSkillLockedIn = false;
-            playerChooseTargetScript.isTargetLockedIn = false;
+            this.GetComponent<PlayerVariableManager>().isSkillLockedIn = false;
+            this.GetComponent<PlayerVariableManager>().isTargetLockedIn = false;
+            this.GetComponent<PlayerVariableManager>().targetedEnemy = null;
+
+            //! Perfect Timing
             if (this.GetComponent<PlayerLockInSkill>().isPerfectTiming == true)
             {
                 actionTimerBarScript.startSelection = 20;
@@ -203,10 +194,10 @@ public class PlayerSkillExecution : MonoBehaviour
             }
             this.GetComponent<actionTimeBar>().isBarFull = false;
             this.GetComponent<PlayerLockInSkill>().lockedInTimer = 0;
-            this.GetComponent<actionTimeBar>().fullTimer = 0;   
-            playerChooseTargetScript.targetedEnemy = null;
+            this.GetComponent<actionTimeBar>().fullTimer = 0;
+            this.GetComponent<PlayerVariableManager>().targetedEnemy = null;
             actionTimerBarScript.selectionBar.fillAmount = 0;
-            battleStateManager.gameState = BattleStateManager.GAMESTATE.CHOOSING_SKILL;
+            this.GetComponent<PlayerVariableManager>().battleStateManagerScript.gameState = BattleStateManager.GAMESTATE.CHOOSING_SKILL;
         }
     }
 }

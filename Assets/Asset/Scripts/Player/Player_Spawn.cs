@@ -35,9 +35,9 @@ public class Player_Spawn : MonoBehaviour {
         for(int i=0;i<sceneManager.playerList.Count;i++)
         {
             //! Loop to instantiate skills
-            for(int j=0;j<sceneManager.playerList[i].GetComponent<Character_Skill_List>().skillList.Count;j++)
+            for(int j=0;j<sceneManager.playerList[i].GetComponent<PlayerVariableManager>().skillList.Count;j++)
             { 
-                sceneManager.playerList[i].GetComponent<Character_Skill_List>().skillHolder.Add(Instantiate(sceneManager.playerList[i].GetComponent<Character_Skill_List>().skillList[j], new Vector2(sceneManager.playerList[i].transform.GetChild(1).transform.position.x - skillOffset + j, sceneManager.playerList[i].transform.GetChild(1).transform.position.y), Quaternion.identity, sceneManager.playerList[i].transform.GetChild(1)));
+                sceneManager.playerList[i].GetComponent<PlayerVariableManager>().skillHolder.Add(Instantiate(sceneManager.playerList[i].GetComponent<PlayerVariableManager>().skillList[j], new Vector2(sceneManager.playerList[i].transform.GetChild(1).transform.position.x - skillOffset + j, sceneManager.playerList[i].transform.GetChild(1).transform.position.y), Quaternion.identity, sceneManager.playerList[i].transform.GetChild(1)));
             }
         }
         
