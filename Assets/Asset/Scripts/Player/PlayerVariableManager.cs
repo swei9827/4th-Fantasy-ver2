@@ -56,8 +56,12 @@ public class PlayerVariableManager : MonoBehaviour {
     public bool isTargetLockedIn;
     public bool isEffectTargetLockedIn = false;
 
+
+    // Player Artifacts
+    public List<GameObject> artifactsList;
     private void Awake()
     {
         playerStats = this.GetComponent<PlayerStats>();
     }
+
 }
