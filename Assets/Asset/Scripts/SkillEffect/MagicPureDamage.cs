@@ -5,7 +5,6 @@ using UnityEngine;
 public class MagicPureDamage : SkillEffect
 {
 
-
     private void Awake()
     {
         user = transform.parent.parent.parent.gameObject;

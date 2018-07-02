@@ -322,7 +322,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4968061370274270, guid: c98038a5b139f974eb30ac5a15569baa, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 224293018855543862, guid: c98038a5b139f974eb30ac5a15569baa,
         type: 2}
@@ -551,13 +551,14 @@ GameObject:
   - component: {fileID: 1124049436}
   - component: {fileID: 1124049435}
   - component: {fileID: 1124049434}
+  - component: {fileID: 1124049438}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1124049434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,6 +635,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1124049438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1124049433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda81f32afbd8274bbcaec40fefb3481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popUp: {fileID: 1395246214691906, guid: 63146443875ef0c4188e6fc0bd3e4f3c, type: 2}
 --- !u!1 &1156052541
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,7 +707,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1491685087
 Prefab:
@@ -890,7 +903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1776419624
 RectTransform:
   m_ObjectHideFlags: 0
