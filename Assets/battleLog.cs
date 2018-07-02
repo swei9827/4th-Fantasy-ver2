@@ -34,6 +34,14 @@ public class battleLog : MonoBehaviour
             //AddEvent("LOGGGG");
             // AddEvent("Player used healing on player 2");
         }
+        if (Input.GetKeyDown("l")) ///player actions
+        {
+            // Debug.Log("HELLOOO");
+            ///AddEvent(this.GetComponent<PlayerStats>().name + " dealt " + playerLockInSkillScript.lockInSkill.GetComponent<SkillDetail>().skillExecutionHolder[0].GetComponent<SkillEffect>().damage + " to " + playerChooseTargetScript.targetedEnemy.GetComponent<EnemyStats>().name);
+            AddEvent("lllll");
+            //AddEvent("LOGGGG");
+            // AddEvent("Player used healing on player 2");
+        }
     }
 
 
