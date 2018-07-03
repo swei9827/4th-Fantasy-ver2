@@ -40,6 +40,9 @@ public class MagicPureDamage : SkillEffect
         }
         float Dmg = (damage - targetedEnemy.GetComponent<EnemyStats>().spirit * 0.8f) * multiplier;
         targetedEnemy.GetComponent<EnemyStats>().health -= (int)Dmg;
+        PopUpDamage(targetedEnemy,(int)Dmg);
         Debug.Log("Deal Damage");
     }
+
+
 }

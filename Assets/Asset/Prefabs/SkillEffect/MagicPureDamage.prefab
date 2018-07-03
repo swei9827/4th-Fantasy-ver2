@@ -53,8 +53,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerList: []
   enemyList: []
+  status: []
   user: {fileID: 0}
   effectDescription: 
   effectType: 0
   damage: 0
+  PopUpPrefab: {fileID: 1247997310769886, guid: 653dfe219425e3f43b2cd606e9098aca,
+    type: 2}
   numOfTarget: 0

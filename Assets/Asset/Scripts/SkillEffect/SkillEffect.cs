@@ -12,6 +12,7 @@ public class SkillEffect : MonoBehaviour {
     public string effectDescription;
     public SKILL_EFFECT_TYPE effectType;
     public int damage;
+    public GameObject PopUpPrefab;
     public int numOfTarget;
     public enum SKILL_EFFECT_TYPE
     {
@@ -41,5 +42,13 @@ public class SkillEffect : MonoBehaviour {
         playerList = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().playerList;
         enemyList = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().enemyList;
         user = transform.parent.parent.parent.gameObject;
+    }
+
+    public void PopUpDamage(GameObject target, int damage)
+    {
+        GameObject newPopUp = Instantiate(PopUpPrefab, target.transform.position, Quaternion.identity);
+        newPopUp.SetActive(true);
+        newPopUp.GetComponent<PopUpDamageController>().SetText(damage.ToString());
+        Destroy(newPopUp.gameObject, 1f);
     }
 }
