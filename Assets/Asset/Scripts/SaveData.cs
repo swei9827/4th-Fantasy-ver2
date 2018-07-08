@@ -4,16 +4,10 @@ using UnityEngine;
 using System;
 using System.IO;
 
-[Serializable]
-public class PlayerStats : GeneralStats {
+public class SaveData : MonoBehaviour {
 
-    public int aggro;
-
-    public PlayerStats()
-    {
-        this.health = 400;
-        this.aggro = 0;
-    }
+    public GameObject player1;
+    public GameObject player2;
 
     [ContextMenu("Save Stats")]
     public void SaveStats()
@@ -21,7 +15,8 @@ public class PlayerStats : GeneralStats {
         //PlayerStats p1Stats = new PlayerStats();
         //PlayerStats p2Stats = new PlayerStats();
 
-        PlayerStats p1Stats = new PlayerStats();
+        PlayerStats p1Stats = player1.GetComponent<PlayerStats>();
+        PlayerStats p2Stats = player2.GetComponent<PlayerStats>();
 
         PlayerList loadedData = this.LoadStats();
 
@@ -44,6 +39,7 @@ public class PlayerStats : GeneralStats {
         }*/
 
         loadedData.players.Add(p1Stats);
+        loadedData.players.Add(p2Stats);
 
         // Convert our Stats class into a JSON string format
         string data = JsonUtility.ToJson(loadedData, true);
@@ -56,9 +52,9 @@ public class PlayerStats : GeneralStats {
 
         File.WriteAllText(path, data);
 
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         UnityEditor.AssetDatabase.Refresh();
-#endif
+        #endif
     }
 
     [ContextMenu("Load Stats")]
@@ -79,10 +75,3 @@ public class PlayerStats : GeneralStats {
         return newList;
     }
 }
-
-[Serializable]
-public class PlayerList
-{
-    public List<PlayerStats> players;
-}
-

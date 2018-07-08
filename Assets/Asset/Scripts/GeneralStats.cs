@@ -31,8 +31,7 @@ public class GeneralStats : MonoBehaviour {
     public new string name;
 
     //public List<StatusEffect> statusEffectList;
-
-    private void Start()
+    public GeneralStats()
     {
         strength = baseStrength;
         magic = baseMagic;
@@ -45,5 +44,10 @@ public class GeneralStats : MonoBehaviour {
         health = baseHealth;
         speed = baseSpeed;
         evasion = baseEvasion;
+    }
+
+    private void Start()
+    {
+        GeneralStats gs = new GeneralStats();
     }
 }
